@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="Surface Location" section_id="ddaf48ea1b1ba3402d60404ead4bcbd6" sys_domain="global" table="x_pinr_well_constr_wv_header" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>utmx</element>
+            <position>0</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-02-01 03:38:00</sys_created_on>
+            <sys_id>4db0582e1b1ba3402d60404ead4bcb92</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Surface Location" display_value="Surface Location" name="x_pinr_well_constr_wv_header" sys_domain="global" view="Default view">ddaf48ea1b1ba3402d60404ead4bcbd6</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-01 03:38:00</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>utmy</element>
+            <position>1</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-02-01 03:38:00</sys_created_on>
+            <sys_id>cdb0582e1b1ba3402d60404ead4bcb92</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Surface Location" display_value="Surface Location" name="x_pinr_well_constr_wv_header" sys_domain="global" view="Default view">ddaf48ea1b1ba3402d60404ead4bcbd6</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-01 03:38:00</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>utm_source</element>
+            <position>2</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-02-01 03:38:00</sys_created_on>
+            <sys_id>41b0582e1b1ba3402d60404ead4bcb93</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Surface Location" display_value="Surface Location" name="x_pinr_well_constr_wv_header" sys_domain="global" view="Default view">ddaf48ea1b1ba3402d60404ead4bcbd6</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-01 03:38:00</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>utm_grid_zone</element>
+            <position>3</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-02-01 03:38:00</sys_created_on>
+            <sys_id>c1b0582e1b1ba3402d60404ead4bcb93</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Surface Location" display_value="Surface Location" name="x_pinr_well_constr_wv_header" sys_domain="global" view="Default view">ddaf48ea1b1ba3402d60404ead4bcbd6</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-01 03:38:00</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>ns_distance</element>
+            <position>4</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-02-01 03:38:00</sys_created_on>
+            <sys_id>45b0582e1b1ba3402d60404ead4bcb93</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Surface Location" display_value="Surface Location" name="x_pinr_well_constr_wv_header" sys_domain="global" view="Default view">ddaf48ea1b1ba3402d60404ead4bcbd6</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-01 03:38:00</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>ns_flag</element>
+            <position>5</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-02-01 03:38:00</sys_created_on>
+            <sys_id>c5b0582e1b1ba3402d60404ead4bcb93</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Surface Location" display_value="Surface Location" name="x_pinr_well_constr_wv_header" sys_domain="global" view="Default view">ddaf48ea1b1ba3402d60404ead4bcbd6</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-01 03:38:00</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>elev_orig_kb</element>
+            <position>6</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-02-01 03:38:00</sys_created_on>
+            <sys_id>49b0582e1b1ba3402d60404ead4bcb93</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Surface Location" display_value="Surface Location" name="x_pinr_well_constr_wv_header" sys_domain="global" view="Default view">ddaf48ea1b1ba3402d60404ead4bcbd6</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-01 03:38:00</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>elev_ground</element>
+            <position>7</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-02-01 03:38:00</sys_created_on>
+            <sys_id>c9b0582e1b1ba3402d60404ead4bcb93</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Surface Location" display_value="Surface Location" name="x_pinr_well_constr_wv_header" sys_domain="global" view="Default view">ddaf48ea1b1ba3402d60404ead4bcbd6</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-01 03:38:00</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>8</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-02-01 03:38:00</sys_created_on>
+            <sys_id>4db0582e1b1ba3402d60404ead4bcb93</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Surface Location" display_value="Surface Location" name="x_pinr_well_constr_wv_header" sys_domain="global" view="Default view">ddaf48ea1b1ba3402d60404ead4bcbd6</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-01 03:38:00</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>latitude</element>
+            <position>9</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-02-01 03:38:00</sys_created_on>
+            <sys_id>cdb0582e1b1ba3402d60404ead4bcb93</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Surface Location" display_value="Surface Location" name="x_pinr_well_constr_wv_header" sys_domain="global" view="Default view">ddaf48ea1b1ba3402d60404ead4bcbd6</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-01 03:38:00</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>longitude</element>
+            <position>10</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-02-01 03:38:00</sys_created_on>
+            <sys_id>41b0582e1b1ba3402d60404ead4bcb94</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Surface Location" display_value="Surface Location" name="x_pinr_well_constr_wv_header" sys_domain="global" view="Default view">ddaf48ea1b1ba3402d60404ead4bcbd6</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-01 03:38:00</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>lat_long_datum</element>
+            <position>11</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-02-01 03:38:00</sys_created_on>
+            <sys_id>c1b0582e1b1ba3402d60404ead4bcb94</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Surface Location" display_value="Surface Location" name="x_pinr_well_constr_wv_header" sys_domain="global" view="Default view">ddaf48ea1b1ba3402d60404ead4bcbd6</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-01 03:38:00</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>lat_long_source</element>
+            <position>12</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-02-01 03:38:00</sys_created_on>
+            <sys_id>45b0582e1b1ba3402d60404ead4bcb94</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Surface Location" display_value="Surface Location" name="x_pinr_well_constr_wv_header" sys_domain="global" view="Default view">ddaf48ea1b1ba3402d60404ead4bcbd6</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-01 03:38:00</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>ew_distance</element>
+            <position>13</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-02-01 03:38:00</sys_created_on>
+            <sys_id>c5b0582e1b1ba3402d60404ead4bcb94</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Surface Location" display_value="Surface Location" name="x_pinr_well_constr_wv_header" sys_domain="global" view="Default view">ddaf48ea1b1ba3402d60404ead4bcbd6</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-01 03:38:00</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>ew_flag</element>
+            <position>14</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-02-01 03:38:00</sys_created_on>
+            <sys_id>49b0582e1b1ba3402d60404ead4bcb94</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Surface Location" display_value="Surface Location" name="x_pinr_well_constr_wv_header" sys_domain="global" view="Default view">ddaf48ea1b1ba3402d60404ead4bcbd6</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-01 03:38:00</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>Surface Location</caption>
+            <header>false</header>
+            <name>x_pinr_well_constr_wv_header</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-02-01 03:33:22</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_id>ddaf48ea1b1ba3402d60404ead4bcbd6</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Surface Location</sys_name>
+            <sys_overrides display_value="">global</sys_overrides>
+            <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+            <sys_update_name>sys_ui_section_ddaf48ea1b1ba3402d60404ead4bcbd6</sys_update_name>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-01 03:33:22</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

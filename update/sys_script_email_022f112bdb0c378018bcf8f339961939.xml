@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>WC_Workflow_Stopped_Email</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template,
+          /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action,
+          /* Optional GlideRecord */ event) {
+
+          // Add your code here
+
+		var payload = JSON.parse(event.parm1);
+		var division_code = payload.division_code;
+	    email.setSubject(division_code + " Well Construction Process Stopped-" +  payload.well_name );
+
+	template.print("<title>" + division_code + " Well Construction Process Alert " + payload.event + " for " + payload.well_name + "</title>");
+	template.print("<table class='content-table'>");
+	template.print("<thead><tr><th colspan='4'> Alert Details</th></tr>");
+
+	template.print("<tr><td width='120'>Well:</td><td colspan='3' style='background:white'>" + payload.well_name + "</td></tr>");
+	template.print("<tr><td width='120'>Event:</td><td colspan='3' style='background:white'>" + payload.event + "</td></tr>");
+	var nowDate = new GlideDate(); 
+	template.print("<tr><td width='120'>Alert Date:</td><td style='background:white' colspan='3'>" + nowDate.getByFormat("MM/dd/yyyy") + "</td>");
+	template.print("</thead></table>");
+	
+	
+	template.print("<table class='content-table'>");
+	
+	template.print("<thead><tr><th colspan='4'> Well Construction Process Alert</th></tr>");
+	template.print("<thead><tr><td colspan='4' style='background:white'>This alert is a courtesy message to notify you that " + payload.event + " has occured in the construction process for this well.</td></tr>");
+
+	template.print("</thead></table>");
+
+	if (gs.getProperty("instance_name") != "pioneer") {
+		template.print("<br><br><br>Footer:<br>"); 	
+		template.print("If this email had been sent in production, it would have gone to the following groups in ServiceNow:<br>") ;
+		template.print("WC Administrator, G-BPM-WELLCS-PAT-Admin <br>");
+	}	
+	
+	
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>gadgi161</sys_created_by>
+        <sys_created_on>2019-03-13 18:41:47</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>022f112bdb0c378018bcf8f339961939</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>WC_Workflow_Stopped_Email</sys_name>
+        <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+        <sys_update_name>sys_script_email_022f112bdb0c378018bcf8f339961939</sys_update_name>
+        <sys_updated_by>gadgi161</sys_updated_by>
+        <sys_updated_on>2019-03-13 18:42:16</sys_updated_on>
+    </sys_script_email>
+</record_update>

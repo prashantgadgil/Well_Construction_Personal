@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="wvtaskdetails" max_length="40" name="x_pinr_well_constr_wvtaskdetails" type="collection">
+        <element attributes="import_attribute_name=actioncom,edge_encryption_enabled=true" label="actioncom" max_length="1380" name="u_actioncom" type="string"/>
+        <element attributes="import_attribute_name=actioncomplete,edge_encryption_enabled=true" label="actioncomplete" max_length="40" name="u_actioncomplete" type="string"/>
+        <element attributes="import_attribute_name=assigntodept,edge_encryption_enabled=true" label="assigntodept" max_length="40" name="u_assigntodept" type="string"/>
+        <element attributes="import_attribute_name=assigntoemail,edge_encryption_enabled=true" label="assigntoemail" max_length="58" name="u_assigntoemail" type="string"/>
+        <element attributes="import_attribute_name=assigntoname,edge_encryption_enabled=true" label="assigntoname" max_length="40" name="u_assigntoname" type="string"/>
+        <element attributes="import_attribute_name=des,edge_encryption_enabled=true" label="des" max_length="56" name="u_des" type="string"/>
+        <element attributes="import_attribute_name=dttmactionrqd,edge_encryption_enabled=true" label="dttmactionrqd" max_length="40" name="u_dttmactionrqd" type="string"/>
+        <element attributes="import_attribute_name=dttmassigned,edge_encryption_enabled=true" label="dttmassigned" max_length="40" name="u_dttmassigned" type="string"/>
+        <element attributes="import_attribute_name=dttmcomplete,edge_encryption_enabled=true" label="dttmcomplete" max_length="40" name="u_dttmcomplete" type="string"/>
+        <element attributes="import_attribute_name=dttmrequest,edge_encryption_enabled=true" label="dttmrequest" max_length="40" name="u_dttmrequest" type="string"/>
+        <element attributes="import_attribute_name=idrec,edge_encryption_enabled=true" label="idrec" max_length="40" name="u_idrec" type="string"/>
+        <element attributes="import_attribute_name=idrecitem,edge_encryption_enabled=true" label="idrecitem" max_length="40" name="u_idrecitem" type="string"/>
+        <element attributes="import_attribute_name=idrecitemtk,edge_encryption_enabled=true" label="idrecitemtk" max_length="40" name="u_idrecitemtk" type="string"/>
+        <element attributes="import_attribute_name=idrecparent,edge_encryption_enabled=true" label="idrecparent" max_length="40" name="u_idrecparent" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="ï»¿idwell" max_length="40" name="u_ï__idwell" type="string"/>
+        <element attributes="import_attribute_name=priority,edge_encryption_enabled=true" label="priority" max_length="40" name="u_priority" type="string"/>
+        <element attributes="import_attribute_name=requestbydept,edge_encryption_enabled=true" label="requestbydept" max_length="40" name="u_requestbydept" type="string"/>
+        <element attributes="import_attribute_name=requestbyemail,edge_encryption_enabled=true" label="requestbyemail" max_length="65" name="u_requestbyemail" type="string"/>
+        <element attributes="import_attribute_name=requestbyname,edge_encryption_enabled=true" label="requestbyname" max_length="40" name="u_requestbyname" type="string"/>
+        <element attributes="import_attribute_name=requestcom,edge_encryption_enabled=true" label="requestcom" max_length="2010" name="u_requestcom" type="string"/>
+        <element attributes="import_attribute_name=status,edge_encryption_enabled=true" label="status" max_length="40" name="u_status" type="string"/>
+        <element attributes="import_attribute_name=syscreatedate,edge_encryption_enabled=true" label="syscreatedate" max_length="40" name="u_syscreatedate" type="string"/>
+        <element attributes="import_attribute_name=syscreateuser,edge_encryption_enabled=true" label="syscreateuser" max_length="40" name="u_syscreateuser" type="string"/>
+        <element attributes="import_attribute_name=syslockchildren,edge_encryption_enabled=true" label="syslockchildren" max_length="40" name="u_syslockchildren" type="string"/>
+        <element attributes="import_attribute_name=syslockchildrenui,edge_encryption_enabled=true" label="syslockchildrenui" max_length="40" name="u_syslockchildrenui" type="string"/>
+        <element attributes="import_attribute_name=syslockdate,edge_encryption_enabled=true" label="syslockdate" max_length="40" name="u_syslockdate" type="string"/>
+        <element attributes="import_attribute_name=syslockme,edge_encryption_enabled=true" label="syslockme" max_length="40" name="u_syslockme" type="string"/>
+        <element attributes="import_attribute_name=syslockmeui,edge_encryption_enabled=true" label="syslockmeui" max_length="40" name="u_syslockmeui" type="string"/>
+        <element attributes="import_attribute_name=sysmoddate,edge_encryption_enabled=true" label="sysmoddate" max_length="40" name="u_sysmoddate" type="string"/>
+        <element attributes="import_attribute_name=sysmoduser,edge_encryption_enabled=true" label="sysmoduser" max_length="40" name="u_sysmoduser" type="string"/>
+        <element attributes="import_attribute_name=sysseq,edge_encryption_enabled=true" label="sysseq" max_length="40" name="u_sysseq" type="string"/>
+        <element attributes="import_attribute_name=systag,edge_encryption_enabled=true" label="systag" max_length="40" name="u_systag" type="string"/>
+        <element attributes="import_attribute_name=typ1,edge_encryption_enabled=true" label="typ1" max_length="45" name="u_typ1" type="string"/>
+        <element attributes="import_attribute_name=typ2,edge_encryption_enabled=true" label="typ2" max_length="45" name="u_typ2" type="string"/>
+        <element attributes="import_attribute_name=usertxt1,edge_encryption_enabled=true" label="usertxt1" max_length="40" name="u_usertxt1" type="string"/>
+        <element attributes="import_attribute_name=usertxt2,edge_encryption_enabled=true" label="usertxt2" max_length="40" name="u_usertxt2" type="string"/>
+    </element>
+</database>

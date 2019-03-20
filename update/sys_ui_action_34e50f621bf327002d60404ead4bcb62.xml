@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name/>
+        <active>true</active>
+        <client>false</client>
+        <client_script_v2/>
+        <comments>This UI action on vwwellheader form makes a copy of the current row and simulates starting a new well just like this one. This is used mainly in testing and won't be needed in production.</comments>
+        <condition/>
+        <form_action>true</form_action>
+        <form_button>true</form_button>
+        <form_button_v2>false</form_button_v2>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
+        <form_style/>
+        <hint/>
+        <isolate_script>false</isolate_script>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <name>Start a New Well Like This One &gt;&gt;</name>
+        <onclick/>
+        <order>100</order>
+        <script><![CDATA[var randomNumber = Math.floor(Math.random() * 10000).toFixed(0).toString();
+var gr = new GlideRecord('x_pinr_well_constr_wvwellheader');
+gr.newRecord();
+gr.initialize();
+
+gr.u_userdttm2 = current.u_userdttm2;
+gr.u_dttmspud = current.u_dttmspud;
+gr.u_utmx = current.u_utmx;
+gr.u_utmy = current.u_utmy;
+gr.u_latitude = current.u_latitude;
+gr.u_longitude = current.u_longitude;
+gr.u_usernum1 = current.u_usernum1;
+gr.u_stateprov = current.u_stateprov;
+gr.u_latlongdatum = current.u_latlongdatum;
+gr.u_latlongsource = current.u_latlongsource;
+gr.u_area = current.u_area;
+gr.u_elevground = current.u_elevground;
+gr.u_elvorigkb = current.u_elvorigkb;
+gr.u_nsdist = current.u_nsdist;
+gr.u_nsflag = current.u_nsflag;
+gr.u_division = current.u_division;
+gr.u_com = current.u_com;
+gr.u_county = current.u_county;
+gr.u_currentwellstatus1 = current.u_currentwellstatus1;
+gr.u_ewdist = current.u_ewdist;
+gr.u_ewflag = current.u_ewflag;
+gr.u_fieldcode = current.u_fieldcode;
+gr.u_fieldname = current.u_fieldname;
+gr.u_legalsurveyloc = current.u_legalsurveyloc;
+gr.u_legalsurveysubtyp = current.u_legalsurveysubtyp;
+gr.u_locationref = current.u_locationref;
+gr.u_townname = current.u_townname;
+gr.u_townflag = current.u_townflag;
+gr.u_towndistance = current.u_towndistance;
+gr.u_usertxt1 = current.u_usertxt1;
+gr.u_usertxt2 = current.u_usertxt2;
+gr.u_usertxt3 = current.u_usertxt3;
+gr.u_usertxt4 = current.u_usertxt4;
+gr.u_usertxt7 = current.u_usertxt7;
+gr.u_usertxt8 = current.u_usertxt8;
+gr.u_usertxt9 = current.u_usertxt9;
+gr.u_utmgridzone = current.u_utmgridzone;
+gr.u_utmsource = current.u_utmsource;
+gr.u_wellida = current.u_wellida;
+gr.u_wellidc = current.u_wellidc;
+gr.u_wellconfig = current.u_wellconfig;
+
+//force it to be under construction for testing.
+gr.u_userboolean2 = "1";
+
+
+
+gr.u_wellname = "Prashant" + randomNumber;
+gr.u_ï__idwell = current.u_ï__idwell;
+//gr.u_ï__idwell = "Prashant" + randomNumber;
+gr.insert();
+gs.error("WC - Created a new row in wvwellheader table with ID Well = " + gr.u_ï__idwell + ", sys_id=" + gr.sys_id);
+gs.addInfoMessage("WC - Created a new row in wvwellheader table with ID Well = " + gr.u_ï__idwell + ", sys_id=" + gr.sys_id);
+
+var grcurrentbore = new GlideRecord('x_pinr_well_constr_wvwellbore');
+grcurrentbore.addQuery("u_ï__idwell", current.u_ï__idwell);
+grcurrentbore.query();
+if (grcurrentbore.next()) {
+	var grb = new GlideRecord('x_pinr_well_constr_wvwellbore');
+	grb.newRecord();
+	grb.initialize();
+
+	grb.u_utmx = grcurrentbore.u_utmx;
+	grb.u_utmy = grcurrentbore.u_utmy;
+	grb.u_utmgridzone = grcurrentbore.u_utmgridzone;
+	grb.u_utmsource = grcurrentbore.u_utmsource;
+	grb.u_latitude = grcurrentbore.u_latitude;
+	grb.u_longitude = grcurrentbore.u_longitude;
+	grb.u_latlongsource = 	grcurrentbore.u_latlongsource;
+	grb.u_nsdist = 	grcurrentbore.u_nsdist;
+	grb.u_nsflag = 	grcurrentbore.u_nsflag;
+	grb.u_ewdist = grcurrentbore.u_ewdist;
+	grb.u_ewflag = grcurrentbore.u_ewflag;
+	grb.u_fieldcode = grcurrentbore.u_fieldcode;
+	grb.u_fieldname = grcurrentbore.u_fieldname;
+	grb.u_legalsurveysubtyp = 	grcurrentbore.u_legalsurveysubtyp;
+	grb.u_locationref = 	grcurrentbore.u_locationref;
+	grb.u_county = grcurrentbore.u_county;
+	grb.u_towndist = 	grcurrentbore.u_towndist;
+	grb.u_townflag = 	grcurrentbore.u_townflag;
+	grb.u_townname = 	grcurrentbore.u_townname;
+	grb.u_townstateprov = 	grcurrentbore.u_townstateprov;
+	grb.u_ï__idwell = current.u_ï__idwell;
+	grb.insert();
+	gs.error("WC - Created a new row in wvwellbore with ID Well = " + grb.u_ï__idwell);
+	gs.addInfoMessage("WC - Created a new row in wvwellbore with ID Well = " + grb.u_ï__idwell);
+}
+else {
+	gs.error("WC - This well header does not have corresponding bore.");	
+	gs.addInfoMessage("WC - This well header does not have corresponding bore.");
+}
+
+//create a Pulse Task in WV Task table
+var grt = new GlideRecord('x_pinr_well_constr_wv_task');
+grt.newRecord();
+grt.initialize();
+grt.request_com = "Requestor Comments";
+grt.date_action_required =  new GlideDate();
+grt.request_date = new GlideDate();
+grt.request_by_email = "prashantgadgil@yahoo.com";
+grt.assign_to_name = "Prashant BP3";
+grt.assigned_date = new GlideDate();
+grt.assign_to_email = "prashant.gadgil@bp-3.com";
+grt.days = "5";
+grt.action_com = "Action Comments";
+grt.id_rec = "Prashant" + randomNumber + "IDRec";
+grt.id_rec_detail = "Prashant" + randomNumber + "IDRecDetail";
+grt.task_name = "Dummy";
+//grt.idwell = "Prashant" + randomNumber;
+grt.idwell = current.u_ï__idwell;
+grt.insert();
+gs.error("WC - Created a new VW Task with WV Task  with IDRec = " + grt.id_rec);
+gs.addInfoMessage("WC - Created a new VW Task with WV Task  with IDRec = " + grt.id_rec);
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+		
+
+
+
+
+
+// gr.u_userdttm2 = current.u_userdttm2;
+// gr.u_dttmspud = current.u_dttmspud;
+// gr.u_utmx = current.u_utmx;
+// gr.u_utmy = current.u_utmy;
+// gr.u_latitude = current.u_latitude;
+// gr.u_longitude = current.u_longitude;
+// gr.u_usernum1 = current.u_usernum1;
+// gr.u_stateprov = current.u_stateprov;
+// gr.u_latlongdatum = current.u_latlongdatum;
+// gr.u_latlongsource = current.u_latlongsource;
+// gr.u_area = current.u_area;
+// gr.u_elevground = current.u_elevground;
+// gr.u_elvorigkb = current.u_elvorigkb;
+// gr.u_nsdist = current.u_nsdist;
+// gr.u_nsflag = current.u_nsflag;
+// gr.u_division = current.u_division;
+// gr.u_com = current.u_com;
+// gr.u_county = current.u_county;
+// gr.u_currentwellstatus1 = current.u_currentwellstatus1;
+// gr.u_ewdist = current.u_ewdist;
+// gr.u_ewflag = current.u_ewflag;
+// gr.u_fieldcode = current.u_fieldcode;
+// gr.u_fieldname = current.u_fieldname;
+// gr.u_legalsurveyloc = current.u_legalsurveyloc;
+// gr.u_legalsurveysubtyp = current.u_legalsurveysubtyp;
+// gr.u_locationref = current.u_locationref;
+// gr.u_townname = current.u_townname;
+// gr.u_townflag = current.u_townflag;
+// gr.u_towndistance = current.u_towndistance;
+// gr.u_usertxt1 = current.u_usertxt1;
+// gr.u_usertxt2 = current.u_usertxt2;
+// gr.u_usertxt3 = current.u_usertxt3;
+// gr.u_usertxt4 = current.u_usertxt4;
+// gr.u_usertxt7 = current.u_usertxt7;
+// gr.u_usertxt8 = current.u_usertxt8;
+// gr.u_usertxt9 = current.u_usertxt9;
+// gr.u_utmgridzone = current.u_utmgridzone;
+// gr.u_utmsource = current.u_utmsource;
+// gr.u_wellida = current.u_wellida;
+// gr.u_wellidc = current.u_wellidc;
+// gr.u_wellconfig = current.u_wellconfig;
+
+
+
+// 	grb.u_utmx = grcurrentbore.u_utmx;
+// 	grb.u_utmy = grcurrentbore.u_utmy;
+// 	grb.u_utmgridzone = grcurrentbore.u_utmgridzone;
+// 	grb.u_utmsource = grcurrentbore.u_utmsource;
+// 	grb.u_latitude = grcurrentbore.u_latitude;
+// 	grb.u_longitude = grcurrentbore.u_longitude;
+// 	grb.u_latlongsource = 	grcurrentbore.u_latlongsource;
+// 	grb.u_nsdist = 	grcurrentbore.u_nsdist;
+// 	grb.u_nsflag = 	grcurrentbore.u_nsflag;
+// 	grb.u_ewdist = grcurrentbore.u_ewdist;
+// 	grb.u_ewflag = grcurrentbore.u_ewflag;
+// 	grb.u_fieldcode = grcurrentbore.u_fieldcode;
+// 	grb.u_fieldname = grcurrentbore.u_fieldname;
+// 	grb.u_legalsurveysubtyp = 	grcurrentbore.u_legalsurveysubtyp;
+// 	grb.u_locationref = 	grcurrentbore.u_locationref;
+// 	grb.u_county = grcurrentbore.u_county;
+// 	grb.u_towndist = 	grcurrentbore.u_towndist;
+// 	grb.u_townflag = 	grcurrentbore.u_townflag;
+// 	grb.u_townname = 	grcurrentbore.u_townname;
+// 	grb.u_townstateprov = 	grcurrentbore.u_townstateprov;
+
+]]></script>
+        <show_insert>false</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>gadgi161</sys_created_by>
+        <sys_created_on>2019-02-26 13:21:00</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>34e50f621bf327002d60404ead4bcb62</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>Start a New Well Like This One &gt;&gt;</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+        <sys_update_name>sys_ui_action_34e50f621bf327002d60404ead4bcb62</sys_update_name>
+        <sys_updated_by>gadgi161</sys_updated_by>
+        <sys_updated_on>2019-03-12 20:39:09</sys_updated_on>
+        <table>x_pinr_well_constr_wvwellheader</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+</record_update>

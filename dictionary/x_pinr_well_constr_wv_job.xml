@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="WV Job" max_length="40" name="x_pinr_well_constr_wv_job" type="collection">
+        <element label="IDRec" max_length="40" name="idrec" type="string"/>
+        <element label="Job Type" max_length="40" name="job_type" type="string"/>
+        <index name="index">
+            <element name="idrec"/>
+        </index>
+    </element>
+</database>

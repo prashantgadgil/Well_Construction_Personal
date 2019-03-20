@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>gadgi161</sys_created_by>
+        <sys_created_on>2019-02-19 18:43:12</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>9c8c88a81b7363c02d60404ead4bcbbf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_pinr_well_constr_wv_zone.x_pinr_well_constr.wv_zone_user</sys_name>
+        <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+        <sys_security_acl display_value="x_pinr_well_constr_wv_zone">5c8c88a81b7363c02d60404ead4bcb89</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_9c8c88a81b7363c02d60404ead4bcbbf</sys_update_name>
+        <sys_updated_by>gadgi161</sys_updated_by>
+        <sys_updated_on>2019-02-19 18:43:12</sys_updated_on>
+        <sys_user_role display_value="x_pinr_well_constr.wv_zone_user" name="x_pinr_well_constr.wv_zone_user">9c8cc4e41b7363c02d60404ead4bcb3e</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>

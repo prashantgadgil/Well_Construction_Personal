@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="sys_properties_category" relationship="" sys_domain="global" table="sys_properties_category_m2m" version="2" view="">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>category</element>
+            <list_id display_value="sys_properties_category_m2m" element="NULL" name="sys_properties_category_m2m" parent="sys_properties_category" relationship="NULL" sys_domain="global" view="Default view">05fab4321b043b402d60404ead4bcba2</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-03-11 08:08:10</sys_created_on>
+            <sys_id>c9fab4321b043b402d60404ead4bcba2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-03-11 08:08:10</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>order</element>
+            <list_id display_value="sys_properties_category_m2m" element="NULL" name="sys_properties_category_m2m" parent="sys_properties_category" relationship="NULL" sys_domain="global" view="Default view">05fab4321b043b402d60404ead4bcba2</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-03-11 08:08:10</sys_created_on>
+            <sys_id>4dfab4321b043b402d60404ead4bcba2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-03-11 08:08:10</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>property</element>
+            <list_id display_value="sys_properties_category_m2m" element="NULL" name="sys_properties_category_m2m" parent="sys_properties_category" relationship="NULL" sys_domain="global" view="Default view">05fab4321b043b402d60404ead4bcba2</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-03-11 08:08:10</sys_created_on>
+            <sys_id>cdfab4321b043b402d60404ead4bcba2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-03-11 08:08:10</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>sys_properties_category_m2m</name>
+            <parent>sys_properties_category</parent>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-31 17:23:16</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_id>1c0442521bdf63402d60404ead4bcbea</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>sys_properties_category_m2m</sys_name>
+            <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+            <sys_update_name>sys_ui_list_sys_properties_category_m2m_sys_properties_category_null</sys_update_name>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-31 17:23:16</sys_updated_on>
+            <sys_user display_value="Gadgil, Prashant">05602d5c4f84efc0bd4e97dd0210c709</sys_user>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

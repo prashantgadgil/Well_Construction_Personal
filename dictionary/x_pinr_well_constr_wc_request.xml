@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="task" label="WC Request" max_length="40" name="x_pinr_well_constr_wc_request" sizeclass="1" type="collection">
+        <element choice="1" default="Draft" label="Construction Status" max_length="40" name="construction_status" read_only="true" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Draft" sequence="0" value="Draft"/>
+                <element inactive_on_update="false" label="Started" sequence="10" value="Started"/>
+                <element inactive_on_update="false" label="Completed" sequence="20" value="Completed"/>
+                <element inactive_on_update="false" label="Stopped" sequence="30" value="Stopped"/>
+                <element inactive_on_update="false" label="Repulsed" sequence="40" value="Repulsed"/>
+            </choice>
+        </element>
+        <element choice="3" label="Division Code" max_length="40" name="division_code" read_only="true" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="PAT" sequence="0" value="PAT"/>
+                <element inactive_on_update="false" label="STAT" sequence="1" value="STAT"/>
+                <element inactive_on_update="false" label="PWM" sequence="2" value="PWM"/>
+                <element inactive_on_update="false" label="unknown" sequence="3" value="unknown"/>
+            </choice>
+        </element>
+        <element label="Is Horizontal" max_length="40" name="is_horizontal" read_only="true" type="boolean"/>
+        <element label="Is Prod" max_length="40" name="is_prod" read_only="true" type="boolean"/>
+        <element label="Repulse" max_length="40" name="repulse" read_only="true" type="boolean"/>
+        <element default="true" label="Restarted" max_length="40" name="restarted" type="boolean"/>
+        <element label="WF Context" max_length="32" name="wf_context" reference="wf_context" type="reference"/>
+        <element label="WV Header" max_length="32" name="wv_header" read_only="true" reference="x_pinr_well_constr_wv_header" type="reference"/>
+        <index name="index">
+            <element name="wf_context"/>
+        </index>
+        <index name="index2">
+            <element name="wv_header"/>
+        </index>
+    </element>
+</database>

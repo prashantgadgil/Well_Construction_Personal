@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>WC_Well_Re-Pulsed_Email</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template,
+          /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action,
+          /* Optional GlideRecord */ event) {
+
+	var payload = JSON.parse(event.parm1);
+	var mailingList = event.parm2;
+
+	var foo = new WellViewTaskProcessor();
+	var division_code = foo.getDivisionCode(payload.division);
+	//gs.error("Prashant - Current.division and Division code in Pulses email subject = {0}, {1})" + current.division_code, division_code);
+	//division_code = "dummy";
+	email.setSubject(division_code + " WCW Alert: "+ payload.event + " for " + payload.well_name);
+	
+	template.print("<title>" + division_code + " Horizontal Well Construction Process Alert " + payload.event + " for " + payload.well_name + "</title>");
+	
+	template.print("<table class='content-table'>");
+	template.print("<thead><tr><th colspan='4'> Alert Details</th></tr>");
+
+	template.print("<tr><td width='120'>Well:</td><td colspan='3' style='background:white'>" + payload.well_name + "</td></tr>");
+	template.print("<tr><td width='120'>Event:</td><td colspan='3' style='background:white'>" + payload.event + "</td></tr>");
+	var nowDate = new GlideDate(); 
+	template.print("<tr><td width='120'>Alert Date:</td><td style='background:white' colspan='3'>" + nowDate.getByFormat("MM/dd/yyyy") + "</td>");
+	template.print("</thead></table>");
+	
+	
+	
+	template.print("<table class='content-table'>");
+	
+	template.print("<thead><tr><th colspan='4'> Well Construction Process Alert</th></tr>");
+	template.print("<thead><tr><td colspan='4' style='background:white'>This alert is a courtesy message to notify you that " + payload.event + " has occured in the construction process for this well.</td></tr>");
+
+	template.print("</thead></table>");
+
+	if (gs.getProperty("instance_name") != "pioneer") {
+		template.print("<br><br><br>Footer:<br>"); 	
+		template.print("If this email had been sent in production, it would have gone to the WC Administrator Group in ServiceNow and to " + mailingList  + "<br>");
+	}	
+	
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>gadgi161</sys_created_by>
+        <sys_created_on>2019-02-27 18:10:26</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>5ab191031bf7a7002d60404ead4bcbda</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name>WC_Well_Re-Pulsed_Email</sys_name>
+        <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+        <sys_update_name>sys_script_email_5ab191031bf7a7002d60404ead4bcbda</sys_update_name>
+        <sys_updated_by>gadgi161</sys_updated_by>
+        <sys_updated_on>2019-03-07 15:26:32</sys_updated_on>
+    </sys_script_email>
+</record_update>

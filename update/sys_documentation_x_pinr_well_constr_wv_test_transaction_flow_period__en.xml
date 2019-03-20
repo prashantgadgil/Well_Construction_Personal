@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="" label="WV Test Transaction Flow Period" language="en" table="x_pinr_well_constr_wv_test_transaction_flow_period">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element/>
+            <help/>
+            <hint/>
+            <label>WV Test Transaction Flow Period</label>
+            <language>en</language>
+            <name>x_pinr_well_constr_wv_test_transaction_flow_period</name>
+            <plural>WV Test Transaction Flow Periods</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-02-19 20:09:27</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>37306ca81bf363c02d60404ead4bcbfe</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>WV Test Transaction Flow Period</sys_name>
+            <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+            <sys_update_name>sys_documentation_x_pinr_well_constr_wv_test_transaction_flow_period__en</sys_update_name>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-19 20:09:27</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

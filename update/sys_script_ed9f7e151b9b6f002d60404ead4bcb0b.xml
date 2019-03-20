@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_label/>
+        <action_name/>
+        <action_query>false</action_query>
+        <action_run_at>server</action_run_at>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <application/>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_pinr_well_constr_wv_task</collection>
+        <condition/>
+        <description>This business rule is used to trigger appropriate notification of change in task level information when Well Construction Workflow is in flight. It responds to changes to following tasks&#13;
+1.	Task Name = Geo Prog and Sub Task Name = Geo Prog Finalized&#13;
+2.	Task Name = Land and Sub Task Name = Approved Yes or No&#13;
+3.	Task Name = Land and Sub Task Name = Critical Date&#13;
+</description>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>WV Task Data Changed</name>
+        <onclick/>
+        <order>100</order>
+        <priority>100</priority>
+        <read_access_action>false</read_access_action>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+	
+	var foo = new WellViewTaskProcessor();
+	var foo2 = new x_pinr_wells_confi.WellsConfigUtils();
+	
+	var division_code = foo.getDivisionCode(current.wv_header.division);
+	
+	// if no active WC Request then no need to respond to changes
+	if (!foo.doesWVHeaderHaveActiveWCRequest(current.wv_header)) {
+		gs.error("WC - There is no active WC request right now for this task's WV Header. So no need to respond to changes to the task level information.");
+		return;
+	}
+	
+	
+	//var configPropertyName = "x_pinr_well_constr." + division_code + "_Alert_Dist_List";
+	var mailingList = "";//gs.getProperty(configPropertyName);
+	//	gs.error("WC - Mailing list for Division " + division_code + "=" + mailingList);
+	
+	// geo change event
+	if ( (current.operation() == "update" 
+		 & current.task_name == "Geo Prog" 
+		 & current.sub_task_name == "Geo Prog Finalized")
+		 & (current.request_com.changes() || current.date_action_required.changes())
+		) {
+		
+		var payload1 = {};
+	
+		if (current.date_action_required.changes()) {
+			payload1.dateChanged = "true";
+		}
+		else {
+			payload1.dateChanged = "false";
+		}
+		
+		if (current.request_com.changes()) {
+			payload1.detailsChanged = "true";
+		}
+		else {
+			payload1.detailsChanged = "false";
+		}
+		payload1.well_name = current.wv_header.well_name.toString();
+		payload1.previous_date = previous.date_action_required.toString();
+		payload1.current_date = current.date_action_required.toString();
+		payload1.previous_details = previous.request_com.toString();
+		payload1.current_details = current.request_com.toString();
+		payload1.sys_updated_by = current.sys_updated_by.toString();
+		payload1.sys_updated_on = current.sys_updated_on.toString();
+		
+		mailingList = foo2.getEmailRecipientAddress("Well Construction","Well Geo Change Notification",division_code);
+		
+		
+		var parm1 = JSON.stringify(payload1);
+		var parm2 = mailingList;
+		//gs.error("WC - parm1  = " + parm1);
+		//gs.error("WC - parm2  = " + parm2);
+		gs.eventQueue("x_pinr_well_constr.WV_Task_Geo_Change", current, parm1, parm2);
+		gs.error("WC - Firing event x_pinr_well_constr.WV_Task_Geo_Change ");
+	}
+	
+	// Well drilling critical change event
+	if ( (current.operation() == "update" 
+		 & current.task_name == "Land" 
+		 & current.sub_task_name == "Approved Yes or No")
+		 & (current.request_com.changes() || current.date_action_required.changes())
+		) {
+		
+		var payload2 = {};
+		
+		if (current.date_action_required.changes()) {
+			payload2.dateChanged = "true";
+		}
+		else {
+			payload2.dateChanged = "false";
+		}
+		
+		if (current.request_com.changes()) {
+			payload2.detailsChanged = "true";
+		}
+		else {
+			payload2.detailsChanged = "false";
+		}
+		payload2.well_name = current.wv_header.well_name.toString();
+		payload2.previous_date = previous.date_action_required.toString();
+		payload2.current_date = current.date_action_required.toString();
+		payload2.previous_details = previous.request_com.toString();
+		payload2.current_details = current.request_com.toString();
+		payload2.sys_updated_by = current.sys_updated_by.toString();
+		payload2.sys_updated_on = current.sys_updated_on.toString();
+	
+		mailingList = foo2.getEmailRecipientAddress("Well Construction","Drilling Critical Monitor Notification",division_code);
+	
+		var parm3 = JSON.stringify(payload2);
+		var parm4 = mailingList;
+		//gs.error("WC - parm1  = " + parm3);
+		//gs.error("WC - parm2  = " + parm4);
+		gs.eventQueue("x_pinr_well_constr.WV_Task_Drilling_Crit", current, parm3, parm4);
+		gs.error("WC - Firing event x_pinr_well_constr.WV_Task_Drilling_Crit ");
+	}
+	// Completion Critical Monitor
+	if ( (current.operation() == "update" 
+		 & current.task_name == "Land" 
+		 & current.sub_task_name == "Critical Date")
+		 & (current.request_com.changes() || current.date_action_required.changes())
+		) {
+		
+		var payload3 = {};
+		
+		if (current.date_action_required.changes()) {
+			payload3.dateChanged = "true";
+		}
+		else {
+			payload3.dateChanged = "false";
+		}
+		
+		if (current.request_com.changes()) {
+			payload3.detailsChanged = "true";
+		}
+		else {
+			payload3.detailsChanged = "false";
+		}
+		payload3.well_name = current.wv_header.well_name.toString();
+		payload3.previous_date = previous.date_action_required.toString();
+		payload3.current_date = current.date_action_required.toString();
+		payload3.previous_details = previous.request_com.toString();
+		payload3.current_details = current.request_com.toString();
+		payload3.sys_updated_by = current.sys_updated_by.toString();
+		payload3.sys_updated_on = current.sys_updated_on.toString();
+	
+		mailingList = foo2.getEmailRecipientAddress("Well Construction","Well Completion Critical Monitor Notification",division_code);
+	
+		var parm5 = JSON.stringify(payload3);
+		var parm6 = mailingList;
+		//gs.error("WC - parm1  = " + parm3);
+		//gs.error("WC - parm2  = " + parm4);
+		gs.eventQueue("x_pinr_well_constr.WV_Task_Comp_Critical", current, parm5, parm6);
+		gs.error("WC - Firing event x_pinr_well_constr.WV_Task_Comp_Critical ");
+	}
+	
+	
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>gadgi161</sys_created_by>
+        <sys_created_on>2019-01-28 19:09:40</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>ed9f7e151b9b6f002d60404ead4bcb0b</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_name>WV Task Data Changed</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+        <sys_update_name>sys_script_ed9f7e151b9b6f002d60404ead4bcb0b</sys_update_name>
+        <sys_updated_by>gadgi161</sys_updated_by>
+        <sys_updated_on>2019-03-13 13:00:33</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+</record_update>

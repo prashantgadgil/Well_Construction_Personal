@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_label/>
+        <action_name/>
+        <action_query>false</action_query>
+        <action_run_at>server</action_run_at>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <application/>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_pinr_well_constr_wv_header</collection>
+        <condition/>
+        <description>This business rule is used to trigger appropriate notification of change in header level information when Well Construction Workflow is in flight. It responds to changes in Well Name, IP Date, Spud Date, heade location (UTMX, UTMY, Latitude, Longitude, Survey, County, StateProvince, LatLongDatum, NS Distance, NS flag, EW Distance, EW Flag, Field Name, area, elev ground, elev orig_kb. Such changes will trigger corresponding notification to appropriate recipients. </description>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>WV Header Data Changed</name>
+        <onclick/>
+        <order>100</order>
+        <priority>100</priority>
+        <read_access_action>false</read_access_action>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+	
+	var foo = new WellViewTaskProcessor();
+	var foo2 = new x_pinr_wells_confi.WellsConfigUtils();
+	var division_code = foo.getDivisionCode(current.division);
+	
+	//var configPropertyName = "x_pinr_well_constr." + division_code + "_Alert_Dist_List";
+	var mailingList = "";//gs.getProperty(configPropertyName);
+	//	gs.error("WC - Mailing list for Division " + division_code + "=" + mailingList);
+	
+	// if no active WC Request then no need to respond to changes
+	if (!foo.doesWVHeaderHaveActiveWCRequest(current.sys_id)) {
+		gs.error("WC - There is no active WC request right now for this WV Header. So no need to respond to changes to header level information.");
+		return;
+	}
+	
+	if (current.operation() == "update" & current.well_name.changes()) {
+		
+		var payload1 = {};
+		payload1.well_name = current.well_name.toString();
+		payload1.previous_well_name = previous.well_name.toString();
+		payload1.api = current.api.toString();
+		payload1.sys_updated_by = current.sys_updated_by.toString();
+		payload1.sys_updated_on = current.sys_updated_on.toString();
+		payload1.spud_date = current.spud_date.toString();
+		
+		mailingList = foo2.getEmailRecipientAddress("Well Construction","Well Name Change Notification",division_code);
+		
+		var parm1 = JSON.stringify(payload1);
+		var parm2 = mailingList;
+		//gs.error("WC - parm1  = " + parm1);
+		//gs.error("WC - parm2  = " + parm2);
+		gs.eventQueue("x_pinr_well_constr.WV_Header_Name_Change", current, parm1, parm2);
+		gs.error("WC - Firing event x_pinr_well_constr.WV_Header_Name_Change ");
+	}
+	
+	// ip date change event
+	if (current.operation() == "update" & current.ip_date.changes()) { // insert or update
+		
+		var payload = {};
+		payload.ip_date = current.ip_date.toString();
+		payload.well_name = current.well_name.toString();
+		payload.previous_ip_date = previous.ip_date.toString();
+		payload.sys_updated_by = current.sys_updated_by.toString();
+		payload.sys_updated_on = current.sys_updated_on.toString();
+		payload.idwell = current.idwell.toString();
+	
+		mailingList = foo2.getEmailRecipientAddress("Well Construction","Well IP Date Change Notification",division_code);
+			
+		var parm3 = JSON.stringify(payload);
+		var parm4 = mailingList;
+		gs.eventQueue("x_pinr_well_constr.WV_Header_IP_Change", current, parm3, parm4);
+		gs.error("WC - Firing event x_pinr_well_constr.WV_Header_IP_Change");
+	}
+	
+	// spud date change event
+	if (current.operation() == "update" & current.spud_date.changes()) {
+		var payload2 = {};
+		payload2.spud_date = current.spud_date.toString();
+		payload2.well_name = current.well_name.toString();
+		payload2.previous_spud_date = previous.spud_date.toString();
+		payload2.sys_updated_by = current.sys_updated_by.toString();
+		payload2.sys_updated_on = current.sys_updated_on.toString();
+		payload2.previous_sys_updated_by = previous.sys_updated_by.toString();
+		payload2.previous_sys_updated_on = previous.sys_updated_on.toString();
+
+		mailingList = foo2.getEmailRecipientAddress("Well Construction","Well Spud Date Change Notification",division_code);
+
+		var parm5= JSON.stringify(payload2);
+		var parm6 = mailingList;
+		gs.eventQueue("x_pinr_well_constr.WV_Header_Spud_Change", current, parm5, parm6);
+		gs.error("WC - Firing event x_pinr_well_constr.WV_Header_Spud_Change");
+	}
+	
+	// surface location change event
+	if (current.operation() == "update" & 
+		(
+		current.utmx.changes() ||
+		current.utmy.changes() ||
+		current.latitude.changes() ||
+		current.longitude.changes() ||
+		current.survey.changes() ||
+		current.county.changes() ||
+		current.stateprov.changes() ||
+		current.lat_long_datum.changes() ||
+		current.ns_distance.changes() ||
+		current.ns_flag.changes() ||
+		current.ew_distance.changes() ||
+		current.ew_flag.changes() ||
+		current.field_name.changes() ||
+		current.area.changes() ||
+		current.elev_ground.changes() ||
+		current.elev_orig_kb.changes() 
+		)
+	   ) {
+		var payload3 = {};
+		payload3.well_name = current.well_name.toString();
+		payload3.api = current.api.toString();
+		payload3.header_sys_updated_by = current.sys_updated_by.toString();
+		payload3.header_sys_updated_on = current.sys_updated_on.toString();
+		payload3.previous_sys_updated_by = previous.sys_updated_by.toString();
+		payload3.previous_sys_updated_on = previous.sys_updated_on.toString();
+
+		payload3.header_current_utmx = current.utmx.toString();
+		payload3.header_current_utmy = current.utmy.toString();
+		payload3.header_current_latitude = current.latitude.toString();
+		payload3.header_current_longitude = current.longitude.toString();
+		payload3.header_current_survey = current.survey.toString();
+		payload3.header_current_county = current.county.toString();
+		payload3.header_current_stateprov = current.stateprov.toString();
+		payload3.header_current_lat_long_datum = current.lat_long_datum.toString();
+		payload3.header_current_ns_distance = current.ns_distance.toString();
+		payload3.header_current_ns_flag = current.ns_flag.toString();
+		payload3.header_current_ew_distance = current.ew_distance.toString();
+		payload3.header_current_ew_flag = current.ew_flag.toString();
+		payload3.header_current_field_name = current.field_name.toString();
+		payload3.header_current_area = current.area.toString();
+		payload3.header_current_elev_ground = current.elev_ground.toString();
+		payload3.header_current_elev_orig_kb = current.elev_orig_kb.toString();
+
+		payload3.header_previous_utmx = previous.utmx.toString();
+		payload3.header_previous_utmy = previous.utmy.toString();
+		payload3.header_previous_latitude = previous.latitude.toString();
+		payload3.header_previous_longitude = previous.longitude.toString();
+		payload3.header_previous_survey = previous.survey.toString();
+		payload3.header_previous_county = previous.county.toString();
+		payload3.header_previous_stateprov = previous.stateprov.toString();
+		payload3.header_previous_lat_long_datum = previous.lat_long_datum.toString();
+		payload3.header_previous_ns_distance = previous.ns_distance.toString();
+		payload3.header_previous_ns_flag = previous.ns_flag.toString();
+		payload3.header_previous_ew_distance = previous.ew_distance.toString();
+		payload3.header_previous_ew_flag = previous.ew_flag.toString();
+		payload3.header_previous_field_name = previous.field_name.toString();
+		payload3.header_previous_area = previous.area.toString();
+		payload3.header_previous_elev_ground = previous.elev_ground.toString();
+		payload3.header_previous_elev_orig_kb = previous.elev_orig_kb.toString();
+	
+		mailingList = foo2.getEmailRecipientAddress("Well Construction","Well Header Loc Change Notification",division_code);
+		
+		var parm7= JSON.stringify(payload3);
+		var parm8 = mailingList;
+		gs.eventQueue("x_pinr_well_constr.WV_Header_Loc_Change", current, parm7, parm8);
+		gs.error("WC - Firing event x_pinr_well_constr.WV_Header_Loc_Change");
+	}
+	
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>gadgi161</sys_created_by>
+        <sys_created_on>2019-01-30 15:45:01</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>47e368021b5723402d60404ead4bcbf8</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>WV Header Data Changed</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+        <sys_update_name>sys_script_47e368021b5723402d60404ead4bcbf8</sys_update_name>
+        <sys_updated_by>gadgi161</sys_updated_by>
+        <sys_updated_on>2019-03-13 13:10:55</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+</record_update>

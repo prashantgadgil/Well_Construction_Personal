@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>WC_Task_Complete_Email</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template,
+          /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action,
+          /* Optional GlideRecord */ event) {
+
+	gs.error("Event first param = " + event.parm1);
+
+	var payload = JSON.parse(event.parm1);
+
+	email.setSubject(payload.division_code + " WCW " +  payload.well_name  + " Alert: " + payload.task_name + " Complete");
+	
+	template.print("<title>" + payload.division_code + " Well Construction Workflow " + payload.well_name + " Alert: > "  + payload.task_name +  " Complete</title>");
+	
+	template.print("<table class='content-table'>");
+	template.print("<thead><tr><th colspan='4'> " + payload.division_code + " Well Construction Task Details</th></tr>");
+template.print("<tr><td width='120'>Well:</td><td style='background:white'>" + payload.well_name + "</td>");
+	template.print("<td width='120'>Task:</td><td style='background:white'>" + payload.task_name + "</td></tr>");
+	template.print("<tr><td width='120'>Action Comment:</td><td colspan='3' style='background:white'>" + payload.action_com.toString() + "</td></tr>");
+	template.print("</thead></table>");
+
+	
+	if (gs.getProperty("instance_name") != "pioneer") {
+		template.print("<br><br><br>Footer:<br>"); 	
+		template.print("If this email had been sent in production, it would have gone to the following recipient email addresses:<br>") ;
+		template.print(payload.mailing_list+ "<br>");
+	}
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>gadgi161</sys_created_by>
+        <sys_created_on>2019-01-23 20:08:49</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>281d51331bcba7002d60404ead4bcb4b</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_name>WC_Task_Complete_Email</sys_name>
+        <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+        <sys_update_name>sys_script_email_281d51331bcba7002d60404ead4bcb4b</sys_update_name>
+        <sys_updated_by>gadgi161</sys_updated_by>
+        <sys_updated_on>2019-02-28 15:51:38</sys_updated_on>
+    </sys_script_email>
+</record_update>

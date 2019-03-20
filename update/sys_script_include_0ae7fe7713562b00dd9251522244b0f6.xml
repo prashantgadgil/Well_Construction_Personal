@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_pinr_well_constr.WellViewTaskProcessor</api_name>
+        <client_callable>false</client_callable>
+        <description>The name happens to be a misleading but this Script Include is a collection of re-usable functions which are called from across the code base at appropriate times. The detailed documentation of each function can be found just above the function declaration in the code itself and won't be repeated here.</description>
+        <name>WellViewTaskProcessor</name>
+        <script><![CDATA[var WellViewTaskProcessor = Class.create();
+WellViewTaskProcessor.prototype = {
+	type: 'WellViewTaskProcessor',
+	initialize: function() {
+		//gs.error("running initialize");
+	},
+	
+	getDivisionCode: function(division) {
+		// this function returns the division_code based on division name of the well.  this dvision code is used as identifier of the division in email subject line/body etc.
+		var division_code = "unknown";
+		if (division == "PERMIAN ASSET TEAM" || division == "PERMIAN - JV SOUTHERN WOLFCAMP" || division == "SOUTHERN WOLFCAMP ASSET TEAM")  {
+			division_code = "PAT";
+		}
+		else if (division == "PWM") {
+			division_code = "PWM";
+		}
+		else if (division == "SOUTH TX ASSET TEAM-EAGLE FORD" || division == "SOUTH TX ASSET TEAM-EDWARDS") {
+			division_code = "STAT";
+		}
+		return division_code;
+	},
+	
+	getIsProd: function(assetTeamIdentifier) {
+	// used while inserting new row in WC Request table
+	// this function decides if the well is a production well or salt water disposal well.. that will drive which construction workflow will be initiated.
+		var isProd = true;
+		if (assetTeamIdentifier.toUpperCase().substr(0,3) == "DWN") {
+			isProd = false;
+		}
+		//gs.error("WC - isProd, assetTeamIdentifier = {0}, {1}", isProd, assetTeamIdentifier);
+		return isProd;
+	},
+	
+	getIsHorizontal : function(wellConfig) {
+	// used while inserting new row in WC Request table 
+	// this function decides if the well is a horizontal well or vertical well. This may be used in deciding different workflow for well construction. Currently both Permian vertical and horizontal workflows are same. But in future could be different. 
+		var isHorizontal = true;
+		if (wellConfig == "VERTICAL") {
+			isHorizontal = false;
+		}
+		//gs.error("WC - isHorizontal, wellConfig = {0}, {1}", isHorizontal, wellConfig);
+	   return isHorizontal;
+	},
+	
+	getWVTaskSysIdForWCRequestTask: function(wvHeaderSysId, shortDescription) {
+		//this function gets the corresoponing well view task sys id for its equivalent WC Request Task. WVHeader is matched as well as short descrption to task name. But the task name comparison is case insensitive. 
+		//gs.error("WC - wvHeaderSysId, shortDescription = " + wvHeaderSysId +"," + shortDescription);
+		var returnValue = "";
+		var gr11 = new GlideRecord('x_pinr_well_constr_wv_task');
+		//var grHeader = gr11.addJoinQuery('x_pinr_well_constr_wv_header', 'sys_id', 'wv_header');
+		gr11.addQuery("wv_header", wvHeaderSysId);
+//		gr11.addQuery("task_name", shortDescription); //compare ignoring case below.
+		gr11.query();
+		var count = gr11.getRowCount();
+		while (gr11.next()) {
+			if (gr11.task_name.toUpperCase() == shortDescription.toUpperCase()) {
+				returnValue = gr11.sys_id;
+				break;
+			}
+		}
+		gs.error("WC - rowcount, wvHeaderSysId, shortDescription, getWVTaskSysIdForWCRequestTask = " + count + "," + wvHeaderSysId + "," + shortDescription + "," + returnValue);
+		return returnValue;
+	},
+
+	doesWVHeaderHaveActiveWCRequest: function(wvHeaderSysId) {
+		// this function returns if there is a WC Request in construction status of Started in ServiceNow. If yes, then multiple emails will be activated for name change spud date change, IP date change etc. If there is no active Started WC Request, then there is no need to send such emails since no one will care about the changes after or before Well Construction is started.
+		var returnValue = false;
+		var gr11 = new GlideRecord('x_pinr_well_constr_wc_request');
+		gr11.addQuery("wv_header", wvHeaderSysId);
+		gr11.addQuery("construction_status", "Started"); //compare if there is active WC Request instance for this wvHeader
+		gr11.query();
+		if (gr11.next()) {
+				returnValue = true;
+		}
+		return returnValue;
+	},
+	
+	processAll: function() {
+		//this function contains all the logic to look at changes in WV Tasks and accordingly mark WC Request Tasks as complete or to start a new WC Request etc. This function will be called by the periodic workflow which will run every hour to look at status of WV Tasks.
+		var change = false;
+		//gs.error("running processAll");
+		//Look at all wells in well header table... well header table will only have wells in under construction state.
+		
+		var grTask = new GlideRecord('x_pinr_well_constr_wv_task');
+		var grHeader = grTask.addJoinQuery('x_pinr_well_constr_wv_header', 'idwell', 'idwell');
+		grHeader.addCondition('under_construction', true);
+		grTask.query();
+	//	gs.error('WC - grTask count = ' + grTask.getRowCount());
+
+		
+ 		while (grTask.next()) {
+			//gs.error('WC - Checking for WC Requests for well = ' + grTask.idwell);
+			//for each see that well has an existing WC request
+			// if not, start a new one. insert a row in WC request table.
+			var grWCRequest = new GlideRecord('x_pinr_well_constr_wc_request');
+			grWCRequest.addQuery('wv_header.idwell', grTask.idwell);
+			//grWCRequest.addQuery('division_code', 'PAT');
+			grWCRequest.query();
+			//gs.error('WC - WCRequest count for  = ' + grTask.idwell + "= " + grWCRequest.getRowCount());
+			if (grWCRequest.getRowCount() == 0) { // there is no Started or Completed WC Request
+					// insert a new WC Request
+					var gr = new GlideRecord('x_pinr_well_constr_wc_request');
+					gr.newRecord();
+					gr.initialize();
+					gr.wv_header = grTask.wv_header; 
+	
+					var foo = new WellViewTaskProcessor();
+					gr.division_code = foo.getDivisionCode(grTask.wv_header.division);
+					gr.is_horizontal = foo.getIsHorizontal(grTask.wv_header.well_config);
+					gr.is_prod = foo.getIsProd(grTask.wv_header.asset_team_identifier);
+					
+				
+					// No need to start WC workflow only for PAT Division
+					if (gr.division_code != "PAT") {
+						gs.error("WC - Disregarding since this is not a PAT division well");
+						continue;
+					}
+					// 
+					// No need to start WC workflow if it is production well and vertical well (not horizontal) 
+// 					if (gr.is_prod && !gr.is_horizontal) {
+// 						gs.error("WC - Disregarding since this is a vertical well");
+// 						continue;
+// 					}
+				
+					gr.construction_status = "Started";
+					gr.repulse = false;
+					gs.error("WC - Inserting WC rows with isProd, isHorizonal = {0}, {1}",gr.isProd,gr.isHorizontal );
+					gr.insert();
+					change = true;
+					gs.error('WC - Started new WC Request for = ' + grTask.idwell + " with request Number = " + gr.number);
+			}	
+			else {
+					    // gs.error('WC - Checking for task statuses in Started or Completed WC Request for ' + grTask.task_name);
+						// process the task updates
+						// get tasks in Well View for this well
+						//find corresponding task in WCRequest Task table
+						var grwcTask = new GlideRecord('x_pinr_well_constr_wc_request_task');
+						grwcTask.addQuery('wc_request.wv_header', grTask.wv_header.sys_id);
+						//grwcTask.addQuery('short_description', grTask.task_name);  need to case sensitive compare  moving below..
+						//grwcTask.addQuery('active','true');
+						grwcTask.query();
+						while (grwcTask.next()) {
+							// compare status of tasks in both tables
+							var wcrequestTaskStatus = grwcTask.wc_task_status;
+							var wvTaskStatus = grTask.wv_task_status;
+							// compare only if short description matches task_name ignoing case
+							if (grwcTask.short_description.toUpperCase() == grTask.task_name.toUpperCase()) { // compare task types ignore case
+									gs.error("WC - WC request task status for " + grwcTask.short_description + "=" + wcrequestTaskStatus + " and WV task status for " + grTask.task_name + "=" + wvTaskStatus);
+									if (wvTaskStatus == 'Completed' & wcrequestTaskStatus  == 'Started') {
+										//gs.error('WC - Completing WC Task.');
+										
+								        // update wv_task in case it has not ben updated yet
+										var grTask4 = new GlideRecord('x_pinr_well_constr_wc_request_task');
+ 										grTask4.get(grwcTask.sys_id);
+ 										grTask4.wv_task = grTask.sys_id;
+ 										grTask4.update();
+
+										// close the WC Request Task
+										var grTask2 = new GlideRecord('x_pinr_well_constr_wc_request_task');
+										grTask2.get(grwcTask.sys_id);
+										//grTask.wc_task_status = "Completed";
+										grTask2.state = "3";
+										grTask2.update();
+										change = true;
+										gs.error("WC - Complete a WC Task during evaluation of " + grTask.task_name);
+									}
+									if (wvTaskStatus == 'Started' & wcrequestTaskStatus  == 'Started') {
+										//gs.error('WC - Updated WV Task Reference.');
+										// update the WC Request Task WV task reference
+										var grTask3 = new GlideRecord('x_pinr_well_constr_wc_request_task');
+										grTask3.get(grwcTask.sys_id);
+										grTask3.wv_task = grTask.sys_id;
+										grTask3.update();
+										change = false;
+										gs.error("WC - Updated a WC Task wv_task reference during evaluation of " + grTask.task_name);
+									}
+
+// 									if (wvTaskStatus == 'Started' & wcrequestTaskStatus  == 'Completed') {
+// 										gs.error("WC - Condition found which requires restarting the instance");
+// 										//we need to cancel the workflows and WC requests and resume
+// 										while (grWCRequest.next()) {
+// 											var workflow = new global.Workflow();
+// 											workflow.cancel(grWCRequest);
+// 											gs.error(gs.getMessage("WC - Workflows for " +  grWCRequest.getDisplayValue() + " have been cancelled and WC Request set to Cancelled due to evaluation of WC request task name " + grTask.task_name));
+// 											var grWC = new GlideRecord('x_pinr_well_constr_wc_request');
+// 											grWC.get(grWCRequest.sys_id);
+// 											grWC.construction_status = 'Cancelled';
+// 											grWC.update();
+// 											gs.error(gs.getMessage("WC - WC Request for {0} construction status has been set to Cancelled.", grWC.getDisplayValue()));
+// 											change = true;
+// 										}
+// 									}
+							  } // // compare task types ignore case
+						}
+				}
+			}
+		return change;
+	},
+	
+	runRecompletionIPDateMonitorJob: function() {
+		//this function is called by the Recompletion IP Date Monitor job to end emails for IP Date tasks. It only sends an email about such task if email has not been sent before. So even if job runs multiple times, only max one email will get sent per WV Task. That is driven by recompletion_ip_date_monitor_email_sent flag 
+		
+		// Job which checks IP completion Date within a certain span and sends email about them.
+		var foo = new WellViewTaskProcessor();
+		var utils = new x_pinr_wells_confi.WellsConfigUtils();
+
+		var grTask = new GlideRecord('x_pinr_well_constr_wv_task');
+		grTask.addQuery('task_name', "IP Date");
+		grTask.addQuery('sub_task_name', "Recompletion IP Date");
+		grTask.addQuery('recompletion_ip_date_monitor_email_sent', false);// send email only if it has not been sent yet
+		var DaysToMonitor = gs.getProperty("x_pinr_well_constr.Recompletion_IP_Date_Monitor_Days");
+		var date1 = new GlideDate();
+		date1.addDaysUTC(-1*DaysToMonitor);
+		grTask.addQuery("date_completed", ">", date1);
+		var grHeader = grTask.addJoinQuery('x_pinr_well_constr_wv_header', 'idwell', 'idwell');
+		grTask.query();
+
+		if (grTask.getRowCount() == 0) {
+			gs.error("WC - No tasks found to send Recompletion IP Date Monitor Email");
+		}
+		
+		while (grTask.next()) {
+			var division_code = foo.getDivisionCode(grTask.wv_header.division);
+			var mailingList = utils.getEmailRecipientAddress("Well Construction","Recompletion IP Monitor Notification",division_code);
+			var payload1 = {};
+			payload1.well_name = grTask.wv_header.well_name.toString();
+			payload1.recompletion_ip_date = grTask.date_completed.toString();//getByFormat("yyyy-MM-dd"); 
+			payload1.action_details = grTask.action_com.toString(); 
+			payload1.sys_updated_on = grTask.sys_updated_on.toString();
+			payload1.sys_updated_by = grTask.sys_updated_by.toString();
+			payload1.division = grTask.wv_header.division.toString();
+			var parm1 = JSON.stringify(payload1);
+			var parm2 = mailingList;
+			gs.eventQueue("x_pinr_well_constr.WV_Task_Recomp_IPDate", current, parm1, parm2);
+			//gs.error("WC - Event x_pinr_well_constr.WV_Task_Recomp_IPDate fired for WVTask " + grTask.task_display_name);
+			
+			//update the flag of Recompletion IP Date Monitor Email Sent to true so the email will not be sent in next run.
+			var grTask2 = new GlideRecord('x_pinr_well_constr_wv_task');
+			grTask2.addQuery('sys_id', grTask.sys_id);
+			grTask2.query();
+			if (grTask2.next()) {
+				grTask2.recompletion_ip_date_monitor_email_sent	= true;
+				grTask2.update();
+				gs.error("WC - Set ecompletion_ip_date_monitor_email_sent = true");
+			}
+				
+			
+		}
+		return;
+	}
+	
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>gadgi161</sys_created_by>
+        <sys_created_on>2018-12-17 19:59:09</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>0ae7fe7713562b00dd9251522244b0f6</sys_id>
+        <sys_mod_count>130</sys_mod_count>
+        <sys_name>WellViewTaskProcessor</sys_name>
+        <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+        <sys_update_name>sys_script_include_0ae7fe7713562b00dd9251522244b0f6</sys_update_name>
+        <sys_updated_by>gadgi161</sys_updated_by>
+        <sys_updated_on>2019-03-13 20:03:20</sys_updated_on>
+    </sys_script_include>
+</record_update>

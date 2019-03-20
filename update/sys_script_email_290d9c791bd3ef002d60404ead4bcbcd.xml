@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>WC_Task_Assigned_Email</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template,
+          /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action,
+          /* Optional GlideRecord */ event) {
+
+          // Add your code here
+
+
+		gs.error("Event first param = " + event.parm1);
+
+		var payload = JSON.parse(event.parm1);	
+		gs.error("Prashant - Composing Email of Task Assignment");
+	    email.setSubject(payload.division_code + " WCW Task Assignment - " +  payload.well_name  + ": " + payload.task_name);
+		template.print("This is notify you that the following task has been created in the Constrution Workflow.<br>");
+
+		template.print("<b>" + payload.division_code + " Well Construction Task Details: </b><br>");
+		template.print("<b>Well Name:</b>" + payload.well_name + "<br>");
+		template.print("<b>WC Request Number:</b>" + payload.wc_request_number + "<br>");
+		template.print("<b>Task Name:</b>" + payload.task_name + "<br>");
+		template.print("<b>Latitude:</b>" + payload.latitude + "<br>");
+		template.print("<b>Longitude:</b>" + payload.longitude + "<br>");
+		template.print("<b>Due Date:</b>" + payload.due_date + "<br>");
+		template.print("<b>Request Comments:</b>" + payload.request_com + "<br>");
+	
+		template.print("You have been assigned a task as part of well construction process for the well noted above.<br>");
+		template.print("The message is to notify you of that task. When the requested work is complete:<br>");
+		template.print("Please open this well in WellView.<br>");
+		template.print("Update the completed date in the task details for this task and save the change.<br>");
+		template.print("The workflow will then send an alert to the Request By Email address to inform them.<br>");
+	
+		template.print("<br><br>");
+		template.print("Footer:<br>"); 	
+
+	    if (gs.getProperty("instance_name") != "pioneer") {
+			template.print("If this email had been sent in production, it would have gone to the following recipient email addresses:<br>") ;
+			template.print(payload.mailing_list+ "<br>");
+		}
+
+	
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>gadgi161</sys_created_by>
+        <sys_created_on>2019-01-29 20:36:23</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>290d9c791bd3ef002d60404ead4bcbcd</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>WC_Task_Assigned_Email</sys_name>
+        <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+        <sys_update_name>sys_script_email_290d9c791bd3ef002d60404ead4bcbcd</sys_update_name>
+        <sys_updated_by>gadgi161</sys_updated_by>
+        <sys_updated_on>2019-02-04 17:27:20</sys_updated_on>
+    </sys_script_email>
+</record_update>

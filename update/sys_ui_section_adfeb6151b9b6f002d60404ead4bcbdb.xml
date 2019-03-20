@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="Req" section_id="adfeb6151b9b6f002d60404ead4bcbdb" sys_domain="global" table="x_pinr_well_constr_wv_task" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>request_com</element>
+            <position>0</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-28 19:07:36</sys_created_on>
+            <sys_id>db1fba151b9b6f002d60404ead4bcbe4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Req" display_value="Req" name="x_pinr_well_constr_wv_task" sys_domain="global" view="Default view">adfeb6151b9b6f002d60404ead4bcbdb</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-28 19:07:36</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>date_action_required</element>
+            <position>1</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-28 19:07:36</sys_created_on>
+            <sys_id>5f1fba151b9b6f002d60404ead4bcbe4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Req" display_value="Req" name="x_pinr_well_constr_wv_task" sys_domain="global" view="Default view">adfeb6151b9b6f002d60404ead4bcbdb</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-28 19:07:36</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>request_date</element>
+            <position>2</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-28 19:07:36</sys_created_on>
+            <sys_id>df1fba151b9b6f002d60404ead4bcbe4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Req" display_value="Req" name="x_pinr_well_constr_wv_task" sys_domain="global" view="Default view">adfeb6151b9b6f002d60404ead4bcbdb</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-28 19:07:36</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>request_by_email</element>
+            <position>3</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-28 19:07:36</sys_created_on>
+            <sys_id>531fba151b9b6f002d60404ead4bcbe5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Req" display_value="Req" name="x_pinr_well_constr_wv_task" sys_domain="global" view="Default view">adfeb6151b9b6f002d60404ead4bcbdb</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-28 19:07:36</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>4</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-28 19:07:36</sys_created_on>
+            <sys_id>d31fba151b9b6f002d60404ead4bcbe5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Req" display_value="Req" name="x_pinr_well_constr_wv_task" sys_domain="global" view="Default view">adfeb6151b9b6f002d60404ead4bcbdb</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-28 19:07:36</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>assign_to_name</element>
+            <position>5</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-28 19:07:36</sys_created_on>
+            <sys_id>571fba151b9b6f002d60404ead4bcbe5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Req" display_value="Req" name="x_pinr_well_constr_wv_task" sys_domain="global" view="Default view">adfeb6151b9b6f002d60404ead4bcbdb</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-28 19:07:36</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>assigned_date</element>
+            <position>6</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-28 19:07:36</sys_created_on>
+            <sys_id>d71fba151b9b6f002d60404ead4bcbe5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Req" display_value="Req" name="x_pinr_well_constr_wv_task" sys_domain="global" view="Default view">adfeb6151b9b6f002d60404ead4bcbdb</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-28 19:07:36</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>assign_to_email</element>
+            <position>7</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-28 19:07:36</sys_created_on>
+            <sys_id>5b1fba151b9b6f002d60404ead4bcbe5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Req" display_value="Req" name="x_pinr_well_constr_wv_task" sys_domain="global" view="Default view">adfeb6151b9b6f002d60404ead4bcbdb</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-28 19:07:36</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>days</element>
+            <position>8</position>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-28 19:07:36</sys_created_on>
+            <sys_id>db1fba151b9b6f002d60404ead4bcbe5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Req" display_value="Req" name="x_pinr_well_constr_wv_task" sys_domain="global" view="Default view">adfeb6151b9b6f002d60404ead4bcbdb</sys_ui_section>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-28 19:07:36</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>Req</caption>
+            <header>false</header>
+            <name>x_pinr_well_constr_wv_task</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-28 19:06:56</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_id>adfeb6151b9b6f002d60404ead4bcbdb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Req</sys_name>
+            <sys_overrides display_value="">global</sys_overrides>
+            <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+            <sys_update_name>sys_ui_section_adfeb6151b9b6f002d60404ead4bcbdb</sys_update_name>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-28 19:06:56</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

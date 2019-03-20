@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysevent_register">
+    <sysevent_register action="INSERT_OR_UPDATE">
+        <description/>
+        <event_name>x_pinr_well_constr.WC_Task_Completed</event_name>
+        <fired_by/>
+        <queue/>
+        <suffix>WC_Task_Completed</suffix>
+        <sys_class_name>sysevent_register</sys_class_name>
+        <sys_created_by>gadgi161</sys_created_by>
+        <sys_created_on>2019-02-01 19:33:23</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>735beb6a1b5be3402d60404ead4bcb56</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_pinr_well_constr.WC_Task_Completed</sys_name>
+        <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+        <sys_update_name>sysevent_register_735beb6a1b5be3402d60404ead4bcb56</sys_update_name>
+        <sys_updated_by>gadgi161</sys_updated_by>
+        <sys_updated_on>2019-02-01 19:33:23</sys_updated_on>
+        <table>x_pinr_well_constr_wc_request_task</table>
+    </sysevent_register>
+</record_update>

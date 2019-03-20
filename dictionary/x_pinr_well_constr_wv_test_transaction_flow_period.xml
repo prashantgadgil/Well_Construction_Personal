@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="WV Test Transaction Flow Period" max_length="40" name="x_pinr_well_constr_wv_test_transaction_flow_period" type="collection">
+        <element label="DateTime End" max_length="40" name="datetime_end" type="glide_date_time"/>
+        <element label="DateTime Start" max_length="40" name="datetime_start" type="glide_date_time"/>
+        <element label="Density Oil End" max_length="40" name="density_oil_end" type="string"/>
+        <element label="IDRec" max_length="40" name="idrec" type="string"/>
+        <element label="IDRecParent" max_length="40" name="idrecparent" type="string"/>
+        <element label="IDWell" max_length="40" name="idwell" type="string"/>
+        <element label="Rate Gas Lift Gas" max_length="40" name="rate_gas_lift_gas" type="string"/>
+        <element label="Volume Gas Total" max_length="40" name="volume_gas_total" type="string"/>
+        <element label="Volume Oil Total" max_length="40" name="volume_oil_total" type="string"/>
+        <element label="Volume Water Total" max_length="40" name="volume_water_total" type="string"/>
+        <index name="index">
+            <element name="idrec"/>
+        </index>
+    </element>
+</database>

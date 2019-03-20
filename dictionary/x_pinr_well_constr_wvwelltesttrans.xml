@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="wvwelltesttrans" max_length="40" name="x_pinr_well_constr_wvwelltesttrans" sizeclass="8532" type="collection">
+        <element attributes="import_attribute_name=com,edge_encryption_enabled=true" label="com" max_length="182" name="u_com" type="string"/>
+        <element attributes="import_attribute_name=depthbtm,edge_encryption_enabled=true" label="depthbtm" max_length="40" name="u_depthbtm" type="string"/>
+        <element attributes="import_attribute_name=depthtop,edge_encryption_enabled=true" label="depthtop" max_length="40" name="u_depthtop" type="string"/>
+        <element attributes="import_attribute_name=des,edge_encryption_enabled=true" label="des" max_length="45" name="u_des" type="string"/>
+        <element attributes="import_attribute_name=displayflag,edge_encryption_enabled=true" label="displayflag" max_length="40" name="u_displayflag" type="string"/>
+        <element attributes="import_attribute_name=dttm,edge_encryption_enabled=true" label="dttm" max_length="40" name="u_dttm" type="string"/>
+        <element attributes="import_attribute_name=idrec,edge_encryption_enabled=true" label="idrec" max_length="40" name="u_idrec" type="string"/>
+        <element attributes="import_attribute_name=idrecjob,edge_encryption_enabled=true" label="idrecjob" max_length="40" name="u_idrecjob" type="string"/>
+        <element attributes="import_attribute_name=idrecjobtk,edge_encryption_enabled=true" label="idrecjobtk" max_length="40" name="u_idrecjobtk" type="string"/>
+        <element attributes="import_attribute_name=idrecwellbore,edge_encryption_enabled=true" label="idrecwellbore" max_length="40" name="u_idrecwellbore" type="string"/>
+        <element attributes="import_attribute_name=idrecwellboretk,edge_encryption_enabled=true" label="idrecwellboretk" max_length="40" name="u_idrecwellboretk" type="string"/>
+        <element attributes="import_attribute_name=idreczonecompletion,edge_encryption_enabled=true" label="idreczonecompletion" max_length="40" name="u_idreczonecompletion" type="string"/>
+        <element attributes="import_attribute_name=idreczonecompletiontk,edge_encryption_enabled=true" label="idreczonecompletiontk" max_length="40" name="u_idreczonecompletiontk" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="ï»¿idwell" max_length="40" name="u_ï__idwell" type="string"/>
+        <element attributes="import_attribute_name=loadfluidtyp,edge_encryption_enabled=true" label="loadfluidtyp" max_length="40" name="u_loadfluidtyp" type="string"/>
+        <element attributes="import_attribute_name=phasesepmethod,edge_encryption_enabled=true" label="phasesepmethod" max_length="40" name="u_phasesepmethod" type="string"/>
+        <element attributes="import_attribute_name=porosity,edge_encryption_enabled=true" label="porosity" max_length="40" name="u_porosity" type="string"/>
+        <element attributes="import_attribute_name=porositysource,edge_encryption_enabled=true" label="porositysource" max_length="40" name="u_porositysource" type="string"/>
+        <element attributes="import_attribute_name=producedto,edge_encryption_enabled=true" label="producedto" max_length="40" name="u_producedto" type="string"/>
+        <element attributes="import_attribute_name=subtyp,edge_encryption_enabled=true" label="subtyp" max_length="40" name="u_subtyp" type="string"/>
+        <element attributes="import_attribute_name=surfacetestequip,edge_encryption_enabled=true" label="surfacetestequip" max_length="40" name="u_surfacetestequip" type="string"/>
+        <element attributes="import_attribute_name=syscreatedate,edge_encryption_enabled=true" label="syscreatedate" max_length="40" name="u_syscreatedate" type="string"/>
+        <element attributes="import_attribute_name=syscreateuser,edge_encryption_enabled=true" label="syscreateuser" max_length="40" name="u_syscreateuser" type="string"/>
+        <element attributes="import_attribute_name=syslockchildren,edge_encryption_enabled=true" label="syslockchildren" max_length="40" name="u_syslockchildren" type="string"/>
+        <element attributes="import_attribute_name=syslockchildrenui,edge_encryption_enabled=true" label="syslockchildrenui" max_length="40" name="u_syslockchildrenui" type="string"/>
+        <element attributes="import_attribute_name=syslockdate,edge_encryption_enabled=true" label="syslockdate" max_length="40" name="u_syslockdate" type="string"/>
+        <element attributes="import_attribute_name=syslockme,edge_encryption_enabled=true" label="syslockme" max_length="40" name="u_syslockme" type="string"/>
+        <element attributes="import_attribute_name=syslockmeui,edge_encryption_enabled=true" label="syslockmeui" max_length="40" name="u_syslockmeui" type="string"/>
+        <element attributes="import_attribute_name=sysmoddate,edge_encryption_enabled=true" label="sysmoddate" max_length="40" name="u_sysmoddate" type="string"/>
+        <element attributes="import_attribute_name=sysmoduser,edge_encryption_enabled=true" label="sysmoduser" max_length="40" name="u_sysmoduser" type="string"/>
+        <element attributes="import_attribute_name=systag,edge_encryption_enabled=true" label="systag" max_length="40" name="u_systag" type="string"/>
+        <element attributes="import_attribute_name=testedby,edge_encryption_enabled=true" label="testedby" max_length="40" name="u_testedby" type="string"/>
+        <element attributes="import_attribute_name=typ,edge_encryption_enabled=true" label="typ" max_length="40" name="u_typ" type="string"/>
+        <element attributes="import_attribute_name=volloadfluid,edge_encryption_enabled=true" label="volloadfluid" max_length="40" name="u_volloadfluid" type="string"/>
+        <element attributes="import_attribute_name=volloadfluidunrecov,edge_encryption_enabled=true" label="volloadfluidunrecov" max_length="40" name="u_volloadfluidunrecov" type="string"/>
+        <element attributes="import_attribute_name=volumemethod,edge_encryption_enabled=true" label="volumemethod" max_length="40" name="u_volumemethod" type="string"/>
+    </element>
+</database>

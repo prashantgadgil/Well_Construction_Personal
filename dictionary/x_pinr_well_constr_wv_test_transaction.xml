@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="WV Test Transaction" max_length="40" name="x_pinr_well_constr_wv_test_transaction" sizeclass="8532" type="collection">
+        <element label="Com" max_length="40" name="com" type="string"/>
+        <element label="DepthBtm" max_length="40" name="depthbtm" type="string"/>
+        <element label="DepthTop" max_length="40" name="depthtop" type="string"/>
+        <element label="Des" max_length="40" name="des" type="string"/>
+        <element label="Display Flag" max_length="40" name="display_flag" type="string"/>
+        <element label="Dttm" max_length="40" name="dttm" type="glide_date_time"/>
+        <element label="IDRec" max_length="40" name="idrec" type="string"/>
+        <element label="IDRecJob" max_length="40" name="idrecjob" type="string"/>
+        <element label="IDRecJobTK" max_length="40" name="idrecjobtk" type="string"/>
+        <element label="IDRec WellBore" max_length="40" name="idrec_wellbore" type="string"/>
+        <element label="IDRec WellBoreTK" max_length="40" name="idrec_wellboretk" type="string"/>
+        <element label="IDRec ZoneCompletion" max_length="40" name="idrec_zonecompletion" type="string"/>
+        <element label="IDRec ZoneCompletionTK" max_length="40" name="idrec_zonecompletiontk" type="string"/>
+        <element label="IDWell" max_length="40" name="idwell" type="string"/>
+        <element label="Load Fluid Type" max_length="40" name="load_fluid_type" type="string"/>
+        <element label="Phase Sep Method" max_length="40" name="phase_sep_method" type="string"/>
+        <element label="Porosity" max_length="40" name="porosity" type="string"/>
+        <element label="Porosity Source" max_length="40" name="porosity_source" type="string"/>
+        <element label="Produced To" max_length="40" name="produced_to" type="string"/>
+        <element label="SubType" max_length="40" name="subtype" type="string"/>
+        <element label="Surface Test Equip" max_length="40" name="surface_test_equip" type="string"/>
+        <element label="Tested By" max_length="40" name="tested_by" type="string"/>
+        <element label="Type" max_length="40" name="type" type="string"/>
+        <element label="Volume Method" max_length="40" name="volume_method" type="string"/>
+        <element label="Vol Load Fluid" max_length="40" name="vol_load_fluid" type="string"/>
+        <element label="Vol Load Fluid Unrecov" max_length="40" name="vol_load_fluid_unrecov" type="string"/>
+        <index name="index">
+            <element name="idrec"/>
+        </index>
+    </element>
+</database>

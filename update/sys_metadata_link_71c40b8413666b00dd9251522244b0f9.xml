@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>update</directory>
+        <documentkey>8b53834413666b00dd9251522244b03b</documentkey>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_user_group">
+    <sys_user_group action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <average_daily_fte/>
+        <cost_center/>
+        <default_assignee/>
+        <description>WC Admins group is the group to whom construction tasks will be assigned</description>
+        <email/>
+        <exclude_manager>false</exclude_manager>
+        <hourly_rate>0</hourly_rate>
+        <include_members>false</include_members>
+        <manager display_value="Gadgil, Prashant">05602d5c4f84efc0bd4e97dd0210c709</manager>
+        <name>WC Admins Group</name>
+        <parent/>
+        <points>0</points>
+        <roles/>
+        <source/>
+        <sys_created_by>gadgi161</sys_created_by>
+        <sys_created_on>2018-12-18 15:28:07</sys_created_on>
+        <sys_id>8b53834413666b00dd9251522244b03b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>gadgi161</sys_updated_by>
+        <sys_updated_on>2018-12-18 15:28:07</sys_updated_on>
+        <type/>
+        <u_co_managed_by>05602d5c4f84efc0bd4e97dd0210c709,16975829dbce2f444a775bd2ca961972,37c27f9d41f79000abda8859d19a2734,3fee7cc74a36231401c05c6f23345a5f</u_co_managed_by>
+        <u_director/>
+        <u_display_name>WC Admins Group</u_display_name>
+        <u_exclude_from_request>false</u_exclude_from_request>
+        <u_group_id/>
+        <u_group_type/>
+        <u_hr>false</u_hr>
+        <u_it_dept>false</u_it_dept>
+        <u_notification_groups/>
+        <u_skip_approval>false</u_skip_approval>
+        <u_support>false</u_support>
+        <vendors/>
+    </sys_user_group>
+</record_update>
+]]></payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>gadgi161</sys_created_by>
+        <sys_created_on>2018-12-18 15:32:51</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>71c40b8413666b00dd9251522244b0f9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>WC Admins Group</sys_name>
+        <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+        <sys_update_name>sys_metadata_link_71c40b8413666b00dd9251522244b0f9</sys_update_name>
+        <sys_updated_by>gadgi161</sys_updated_by>
+        <sys_updated_on>2018-12-18 15:32:51</sys_updated_on>
+        <tablename>sys_user_group</tablename>
+    </sys_metadata_link>
+</record_update>

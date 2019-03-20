@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="town_distance" label="Town Distance" language="en" table="x_pinr_well_constr_wv_bore">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>town_distance</element>
+            <help/>
+            <hint/>
+            <label>Town Distance</label>
+            <language>en</language>
+            <name>x_pinr_well_constr_wv_bore</name>
+            <plural>Town Distances</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-21 21:25:40</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>659b1bcfdb07e30018bcf8f339961925</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Town Distance</sys_name>
+            <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+            <sys_update_name>sys_documentation_x_pinr_well_constr_wv_bore_town_distance_en</sys_update_name>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-21 21:25:40</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

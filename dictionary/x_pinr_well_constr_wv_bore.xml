@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="WV Bore" max_length="40" name="x_pinr_well_constr_wv_bore" type="collection">
+        <element label="County" max_length="40" name="county" type="string"/>
+        <element label="EW Distance" max_length="40" name="ew_distance" type="float"/>
+        <element label="EW Flag" max_length="40" name="ew_flag" type="string"/>
+        <element label="Field Code" max_length="40" name="field_code" type="string"/>
+        <element label="Field Name" max_length="40" name="field_name" type="string"/>
+        <element label="IDWell" max_length="50" name="idwell" type="string"/>
+        <element label="Last Modified By" max_length="40" name="last_modified_by" type="string"/>
+        <element label="Last Modified Date" max_length="40" name="last_modified_date" type="glide_date_time"/>
+        <element label="Latitude" max_length="40" name="latitude" type="float"/>
+        <element label="Lat Long Datum" max_length="40" name="lat_long_datum" type="string"/>
+        <element label="Lat Long Source" max_length="40" name="lat_long_source" type="string"/>
+        <element label="Location Ref" max_length="40" name="location_ref" type="string"/>
+        <element label="Longitude" max_length="40" name="longitude" type="float"/>
+        <element label="NS Distance" max_length="40" name="ns_distance" type="float"/>
+        <element label="NS Flag" max_length="40" name="ns_flag" type="string"/>
+        <element label="Survey" max_length="40" name="survey" type="string"/>
+        <element label="Town Distance" max_length="40" name="town_distance" type="float"/>
+        <element label="Town Flag" max_length="40" name="town_flag" type="string"/>
+        <element label="Town Name" max_length="40" name="town_name" type="string"/>
+        <element label="Town State Prov" max_length="40" name="town_state_prov" type="string"/>
+        <element label="Utmx" max_length="40" name="utmx" type="float"/>
+        <element label="Utmy" max_length="40" name="utmy" type="float"/>
+        <element label="UTM Grid Zone" max_length="40" name="utm_grid_zone" type="string"/>
+        <element label="Utm Source" max_length="40" name="utm_source" type="string"/>
+        <element label="WV Header" max_length="32" name="wv_header" reference="x_pinr_well_constr_wv_header" reference_cascade_rule="delete" type="reference"/>
+        <index name="index">
+            <element name="wv_header"/>
+        </index>
+        <index name="index2">
+            <element name="idwell"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="league" label="League" language="en" table="x_pinr_well_constr_wv_header">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>league</element>
+            <help/>
+            <hint/>
+            <label>League</label>
+            <language>en</language>
+            <name>x_pinr_well_constr_wv_header</name>
+            <plural>Leagues</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-21 21:05:13</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>8ee6d78bdb07e30018bcf8f339961995</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>League</sys_name>
+            <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+            <sys_update_name>sys_documentation_x_pinr_well_constr_wv_header_league_en</sys_update_name>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-21 21:05:13</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

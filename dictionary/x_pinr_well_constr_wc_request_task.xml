@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="task" label="WC Request Task" max_length="40" name="x_pinr_well_constr_wc_request_task" sizeclass="3" type="collection">
+        <element label="Silent" max_length="40" name="silent" type="boolean"/>
+        <element label="WC Request" max_length="32" name="wc_request" read_only="true" reference="x_pinr_well_constr_wc_request" reference_cascade_rule="delete" type="reference"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;       // Add your code here&#13;&#10;        if ((current.state ==3) || (current.state ==4))  {&#13;&#10;              return 'Completed';&#13;&#10;        }&#13;&#10;       else {&#13;&#10;            return 'Started'&#13;&#10;&#9;}&#13;&#10;})(current);" label="WC Task Status" max_length="40" name="wc_task_status" type="string" virtual="true"/>
+        <element label="WV Task" max_length="32" name="wv_task" reference="x_pinr_well_constr_wv_task" type="reference"/>
+        <index name="index">
+            <element name="wc_request"/>
+        </index>
+        <index name="index2">
+            <element name="wv_task"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="wvtask" max_length="40" name="x_pinr_well_constr_wvtask" type="collection">
+        <element attributes="import_attribute_name=com,edge_encryption_enabled=true" label="com" max_length="84" name="u_com" type="string"/>
+        <element attributes="import_attribute_name=des,edge_encryption_enabled=true" label="des" max_length="78" name="u_des" type="string"/>
+        <element attributes="import_attribute_name=dttmendrecur,edge_encryption_enabled=true" label="dttmendrecur" max_length="40" name="u_dttmendrecur" type="string"/>
+        <element attributes="import_attribute_name=dttmstartrecur,edge_encryption_enabled=true" label="dttmstartrecur" max_length="40" name="u_dttmstartrecur" type="string"/>
+        <element attributes="import_attribute_name=idrec,edge_encryption_enabled=true" label="idrec" max_length="40" name="u_idrec" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="ï»¿idwell" max_length="40" name="u_ï__idwell" type="string"/>
+        <element attributes="import_attribute_name=recurfrequency,edge_encryption_enabled=true" label="recurfrequency" max_length="40" name="u_recurfrequency" type="string"/>
+        <element attributes="import_attribute_name=recurnote,edge_encryption_enabled=true" label="recurnote" max_length="40" name="u_recurnote" type="string"/>
+        <element attributes="import_attribute_name=syscreatedate,edge_encryption_enabled=true" label="syscreatedate" max_length="40" name="u_syscreatedate" type="string"/>
+        <element attributes="import_attribute_name=syscreateuser,edge_encryption_enabled=true" label="syscreateuser" max_length="40" name="u_syscreateuser" type="string"/>
+        <element attributes="import_attribute_name=syslockchildren,edge_encryption_enabled=true" label="syslockchildren" max_length="40" name="u_syslockchildren" type="string"/>
+        <element attributes="import_attribute_name=syslockchildrenui,edge_encryption_enabled=true" label="syslockchildrenui" max_length="40" name="u_syslockchildrenui" type="string"/>
+        <element attributes="import_attribute_name=syslockdate,edge_encryption_enabled=true" label="syslockdate" max_length="40" name="u_syslockdate" type="string"/>
+        <element attributes="import_attribute_name=syslockme,edge_encryption_enabled=true" label="syslockme" max_length="40" name="u_syslockme" type="string"/>
+        <element attributes="import_attribute_name=syslockmeui,edge_encryption_enabled=true" label="syslockmeui" max_length="40" name="u_syslockmeui" type="string"/>
+        <element attributes="import_attribute_name=sysmoddate,edge_encryption_enabled=true" label="sysmoddate" max_length="40" name="u_sysmoddate" type="string"/>
+        <element attributes="import_attribute_name=sysmoduser,edge_encryption_enabled=true" label="sysmoduser" max_length="40" name="u_sysmoduser" type="string"/>
+        <element attributes="import_attribute_name=sysseq,edge_encryption_enabled=true" label="sysseq" max_length="40" name="u_sysseq" type="string"/>
+        <element attributes="import_attribute_name=systag,edge_encryption_enabled=true" label="systag" max_length="40" name="u_systag" type="string"/>
+        <element attributes="import_attribute_name=typ1,edge_encryption_enabled=true" label="typ1" max_length="40" name="u_typ1" type="string"/>
+        <element attributes="import_attribute_name=typ2,edge_encryption_enabled=true" label="typ2" max_length="40" name="u_typ2" type="string"/>
+    </element>
+</database>

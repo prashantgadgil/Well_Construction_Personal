@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>Well_Construction_CSS</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template,
+          /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action,
+          /* Optional GlideRecord */ event) {
+
+template.print("<style type='text/css'>");
+template.print("<!--");
+//template.print(" h1.base-text {color: green;} .red-text {color:red} .bold-text {color:blue}");
+template.print("body {");
+template.print("    margin-left:0;");
+template.print("    margin-top:0;");
+template.print("    margin-right:0;");
+template.print("    margin-bottom:0;");
+template.print("    font-family:arial;");
+template.print("    font-size:12px;");
+template.print("}");
+template.print(".content-table {");
+template.print("    margin-top: 20px;");
+template.print("    border-collapse: collapse;");
+template.print("    width: 100%;");
+template.print(" }");
+template.print(" .content-table thead tr th {");
+template.print("     background-color: #008000;");
+template.print("     padding: 0px 10px 0px 5px;");
+template.print("     margin: 0px;");
+template.print("     border: 1px solid #008000;");
+template.print("     border-bottom: 1px solid  #008000;");
+template.print("     height: 20px;");
+template.print("     color: #FFFFFF;");
+template.print("     font-family: arial;");
+template.print("     font-size: 14px;");
+template.print("     font-weight: bold;");
+template.print("     text-align: left;");
+template.print(" }");
+template.print(".content-table thead tr td {");
+template.print("    height: 19px;");
+template.print("    background-color: #E5ECF1;");
+template.print("    padding: 0px 0px 0px 5px;");
+template.print("    margin: 0px;");
+template.print("    border: 1px solid  #008000;");
+template.print("    font-family: arial;");
+template.print("    font-size: 12px;");
+template.print("    font-weight: bold;");
+template.print("   color:  #008000;");
+template.print("}");
+template.print(".content-table thead tr td a, .content-table thead tr td a:visited {");
+template.print("    color:  #008000;");
+template.print("    font-family: arial;");
+template.print("    font-size: 12px;");
+template.print("    font-weight: bold;");
+template.print("}");
+template.print(".content-table tbody tr td {");
+template.print("    height: 19px;");
+template.print("    padding: 0px 0px 0px 5px;");
+template.print("    margin: 0px;");
+template.print("    border: 1px solid  #008000;");
+template.print("    font-family: arial;");
+template.print("    font-size: 12px;");
+template.print("    font-weight: normal;");
+template.print("    color:  #008000;");
+template.print("}");
+template.print(".content-table tbody tr td a, .content-table tbody tr td a:visited {");
+template.print("    color:  #008000;");
+template.print("    font-family: arial;");
+template.print("    font-size: 12px;");
+template.print("}");
+template.print("-->");
+template.print("</style>");
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>gadgi161</sys_created_by>
+        <sys_created_on>2019-02-26 15:23:05</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>2631ab621bb727002d60404ead4bcbc7</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>Well_Construction_CSS</sys_name>
+        <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+        <sys_update_name>sys_script_email_2631ab621bb727002d60404ead4bcbc7</sys_update_name>
+        <sys_updated_by>gadgi161</sys_updated_by>
+        <sys_updated_on>2019-02-27 02:19:35</sys_updated_on>
+    </sys_script_email>
+</record_update>

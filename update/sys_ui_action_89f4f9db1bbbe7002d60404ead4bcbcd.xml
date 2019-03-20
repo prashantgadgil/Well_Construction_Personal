@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name/>
+        <active>true</active>
+        <client>false</client>
+        <client_script_v2/>
+        <comments>This UI action cancels the workflow on current WC Request</comments>
+        <condition>current.construction_status == "Started"</condition>
+        <form_action>true</form_action>
+        <form_button>false</form_button>
+        <form_button_v2>false</form_button_v2>
+        <form_context_menu>false</form_context_menu>
+        <form_link>true</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
+        <form_style/>
+        <hint>Re-Pulses This Construction Workflow</hint>
+        <isolate_script>false</isolate_script>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <name>Stop This Construction Workflow &gt;&gt;</name>
+        <onclick/>
+        <order>100</order>
+        <script><![CDATA[	var workflow = new global.Workflow();
+	workflow.cancel(current);
+	gs.error("WC - Workflows for " +  current.getDisplayValue() + " have been cancelled and WC Request set to Stopped.");
+	current.construction_status = 'Stopped';
+	current.update();
+	gs.error(gs.getMessage("WC - WC Request for {0} construction status has been set to Stopped.", current.getDisplayValue()));
+
+
+//send email
+		//gs.error("WC - Well Construction Process Completed.");
+	var foo = new WellViewTaskProcessor();
+	var division_code = "";
+	if (!current.wv_header.nil()) {
+		division_code = foo.getDivisionCode(current.wv_header.division);
+	}
+	var payload3 = {};
+	payload3.event = "Well Construction Process Stopped";
+	payload3.division_code = division_code.toString();
+	if (!current.wv_header.nil()) {
+		payload3.well_name = current.wv_header.well_name.toString();
+		payload3.number = current.number.toString();
+		payload3.latitude = current.wv_header.latitude.toString();
+		payload3.longitude = current.wv_header.longitude.toString();
+	}
+	payload3.sys_updated_by = current.sys_updated_by.toString();
+	payload3.sys_updated_on = current.sys_updated_on.toString();
+	var parm7= JSON.stringify(payload3);
+	var parm8 = "";//mailingList;
+	gs.eventQueue("x_pinr_well_constr.WC_Workflow_Stopped", current, parm7, parm8);
+
+	
+ ]]></script>
+        <show_insert>false</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>gadgi161</sys_created_by>
+        <sys_created_on>2019-02-28 15:22:51</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>89f4f9db1bbbe7002d60404ead4bcbcd</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Stop This Construction Workflow &gt;&gt;</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+        <sys_update_name>sys_ui_action_89f4f9db1bbbe7002d60404ead4bcbcd</sys_update_name>
+        <sys_updated_by>gadgi161</sys_updated_by>
+        <sys_updated_on>2019-03-13 18:40:10</sys_updated_on>
+        <table>x_pinr_well_constr_wc_request</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+</record_update>

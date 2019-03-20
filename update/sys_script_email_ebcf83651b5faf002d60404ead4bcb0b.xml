@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>WC_Bore_Loc_Change_Email</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template,
+          /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action,
+          /* Optional GlideRecord */ event) {
+
+// 	gs.error("Event first param = " + event.parm1);
+// 	gs.error("Event second param = " + event.parm2);
+
+	var payload = JSON.parse(event.parm1);
+	var mailingList = event.parm2;
+	var foo = new WellViewTaskProcessor();
+	var division_code = foo.getDivisionCode(current.wv_header.division);
+	
+	email.setSubject(division_code + " Well Bottom Hole Location Alert: " + payload.well_name + " Location Changed");
+	template.print("<title>" + division_code + " Well Construction > Well Location Change Alert for " + payload.well_name + "</title>");
+
+	
+	template.print("<table class='content-table'><thead>");
+	template.print("<tr><th colspan='4'>" + division_code + " Well Construction Process Alert</th></tr>");
+	template.print("<tr><td colspan='4'>This alert is a courtesy message to notify you that the well bottom hole location information has changed in the construction process for well " + payload.well_name);
+
+	var nowDate = new GlideDate(); 
+	template.print("<tr><td width='33%'>Alert Date:</td><td colspan='2' style='background:white'>" + nowDate.getByFormat("yyyy-MM-dd") + "</td></tr>");
+	template.print("<tr><td width='33%'>API:</td><td colspan='2' style='background:white'>" + payload.api + "</td></tr>");
+	template.print("<tr><th>Bottom Location</th><th>New</th><th>Old</th></tr>");
+	//template.print("<tr><th colspan='3'>Bottom Location</th>");
+	
+	
+	if (payload.bore_current_utmx != payload.bore_previous_utmx) {
+		template.print("<tr><td>Bottom Hole UTM X</td><td style='color:#ff0000;font-weight:bold;'>" + payload.bore_current_utmx + "</td><td>" + payload.bore_previous_utmx + "</td></tr>");
+	}
+	if (payload.bore_current_utmy != payload.bore_previous_utmy) {
+		template.print("<tr><td>Bottom Hole UTM Y</td><td style='color:#ff0000;font-weight:bold;'>" + payload.bore_current_utmy + "</td><td>" + payload.bore_previous_utmy + "</td></tr>");
+	}
+	if (payload.bore_current_latitude != payload.bore_previous_latitude) {
+		template.print("<tr><td>Bottom Hole Latitude</td><td style='color:#ff0000;font-weight:bold;'>" + payload.bore_current_latitude + "</td><td>" + payload.bore_previous_latitude + "</td></tr>");
+	}
+	if (payload.bore_current_longitude != payload.bore_previous_longitude) {
+		template.print("<tr><td>Bottom Hole Longitude</td><td style='color:#ff0000;font-weight:bold;'>" + payload.bore_current_longitude + "</td><td>" + payload.bore_previous_longitude + "</td></tr>");
+	}
+	if (payload.bore_current_survey != payload.bore_previous_survey) {
+		template.print("<tr><td>Bottom Hole Survey</td><td style='color:#ff0000;font-weight:bold;'>" + payload.bore_current_survey + "</td><td>" + payload.bore_previous_survey + "</td></tr>");
+	}
+	
+	template.print("<tr><td>Bottom Hole Location Last Modified On:</td><td style='color:#ff0000;font-weight:bold;'>" + payload.bore_sys_updated_on + "</td><td>" + payload.previous_sys_updated_on + "</td></tr>");
+	template.print("<tr><td>Bottom Hole Location Last Modified By (user id):</td><td style='color:#ff0000;font-weight:bold;'>" + payload.bore_sys_updated_by + "</td><td>" + payload.previous_sys_updated_by + "</td></tr>");
+	template.print("</thead></table>");
+	
+	if (gs.getProperty("instance_name") != "pioneer") {
+		template.print("<br><br><br>Footer:<br>"); 	
+		template.print("If this email had been sent in production, it would have gone to the following recipient email addresses:<br>") ;
+		template.print(mailingList + "<br>");
+	}
+	
+	
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>gadgi161</sys_created_by>
+        <sys_created_on>2019-01-29 14:59:01</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>ebcf83651b5faf002d60404ead4bcb0b</sys_id>
+        <sys_mod_count>17</sys_mod_count>
+        <sys_name>WC_Bore_Loc_Change_Email</sys_name>
+        <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+        <sys_update_name>sys_script_email_ebcf83651b5faf002d60404ead4bcb0b</sys_update_name>
+        <sys_updated_by>gadgi161</sys_updated_by>
+        <sys_updated_on>2019-03-07 15:06:51</sys_updated_on>
+    </sys_script_email>
+</record_update>

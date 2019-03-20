@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_related sys_domain="global" table="x_pinr_well_constr_wv_header" version="2" view="">
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="WV Header - Default view" name="x_pinr_well_constr_wv_header" related_list="NULL" sys_domain="global" view="Default view">6ee99f291b9faf002d60404ead4bcb3f</list_id>
+            <order_by/>
+            <position>0</position>
+            <related_list>x_pinr_well_constr_wv_task.wv_header</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-29 15:43:11</sys_created_on>
+            <sys_id>26e99f291b9faf002d60404ead4bcb40</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-29 15:43:11</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="WV Header - Default view" name="x_pinr_well_constr_wv_header" related_list="NULL" sys_domain="global" view="Default view">6ee99f291b9faf002d60404ead4bcb3f</list_id>
+            <order_by/>
+            <position>1</position>
+            <related_list>x_pinr_well_constr_wv_bore.wv_header</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-29 15:43:11</sys_created_on>
+            <sys_id>2ae99f291b9faf002d60404ead4bcb40</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-29 15:43:11</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="WV Header - Default view" name="x_pinr_well_constr_wv_header" related_list="NULL" sys_domain="global" view="Default view">6ee99f291b9faf002d60404ead4bcb3f</list_id>
+            <order_by/>
+            <position>2</position>
+            <related_list>x_pinr_well_constr_wc_request.wv_header</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-29 15:43:11</sys_created_on>
+            <sys_id>2ee99f291b9faf002d60404ead4bcb40</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-29 15:43:11</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list action="INSERT_OR_UPDATE">
+            <calculated_name>WV Header - Default view</calculated_name>
+            <filter/>
+            <name>x_pinr_well_constr_wv_header</name>
+            <order_by/>
+            <position/>
+            <related_list/>
+            <sys_class_name>sys_ui_related_list</sys_class_name>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-29 15:43:11</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_id>6ee99f291b9faf002d60404ead4bcb3f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>WV Header - Default view</sys_name>
+            <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+            <sys_update_name>sys_ui_related_x_pinr_well_constr_wv_header_null</sys_update_name>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-29 15:43:11</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_related_list>
+    </sys_ui_related>
+</record_update>

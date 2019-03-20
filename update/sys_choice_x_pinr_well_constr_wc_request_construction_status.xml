@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="construction_status" table="x_pinr_well_constr_wc_request" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>construction_status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Draft</label>
+            <language>en</language>
+            <name>x_pinr_well_constr_wc_request</name>
+            <sequence>0</sequence>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2018-12-10 18:45:59</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>f44422e113126300dd9251522244b03b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2018-12-10 18:45:59</sys_updated_on>
+            <value>Draft</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>construction_status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Started</label>
+            <language>en</language>
+            <name>x_pinr_well_constr_wc_request</name>
+            <sequence>10</sequence>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2018-12-07 19:20:58</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>048f07ac135e6f00dd9251522244b048</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-28 15:25:44</sys_updated_on>
+            <value>Started</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>construction_status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Completed</label>
+            <language>en</language>
+            <name>x_pinr_well_constr_wc_request</name>
+            <sequence>20</sequence>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2018-12-07 19:20:59</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>4c8f07ac135e6f00dd9251522244b0ff</sys_id>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-28 15:25:48</sys_updated_on>
+            <value>Completed</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>construction_status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Stopped</label>
+            <language>en</language>
+            <name>x_pinr_well_constr_wc_request</name>
+            <sequence>30</sequence>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-02-28 15:24:59</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>a075f51f1bbbe7002d60404ead4bcbc1</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-28 15:25:51</sys_updated_on>
+            <value>Stopped</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>construction_status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Repulsed</label>
+            <language>en</language>
+            <name>x_pinr_well_constr_wc_request</name>
+            <sequence>40</sequence>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2018-12-07 19:20:59</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>c08f07ac135e6f00dd9251522244b0fb</sys_id>
+            <sys_mod_count>4</sys_mod_count>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-02-28 15:25:56</sys_updated_on>
+            <value>Repulsed</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>construction_status</element>
+            <name>x_pinr_well_constr_wc_request</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2018-12-07 19:20:59</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>c69bc65a1bb7a3002d60404ead4bcb90</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>construction_status</sys_name>
+            <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+            <sys_update_name>sys_choice_x_pinr_well_constr_wc_request_construction_status</sys_update_name>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2018-12-07 19:20:59</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

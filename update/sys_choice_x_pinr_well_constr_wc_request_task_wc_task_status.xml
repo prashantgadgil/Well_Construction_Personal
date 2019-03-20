@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="wc_task_status" table="x_pinr_well_constr_wc_request_task" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>wc_task_status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Started</label>
+            <language>en</language>
+            <name>x_pinr_well_constr_wc_request_task</name>
+            <sequence>0</sequence>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2018-12-07 19:30:56</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>4ec1d360139e6f00dd9251522244b09a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2018-12-07 19:30:56</sys_updated_on>
+            <value>Started</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>wc_task_status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Completed</label>
+            <language>en</language>
+            <name>x_pinr_well_constr_wc_request_task</name>
+            <sequence>3</sequence>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2018-12-07 19:30:56</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>46c11760139e6f00dd9251522244b01e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2018-12-07 19:30:56</sys_updated_on>
+            <value>Completed</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>wc_task_status</element>
+            <name>x_pinr_well_constr_wc_request_task</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2018-12-07 19:30:56</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>c29bc65a1bb7a3002d60404ead4bcbc5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>wc_task_status</sys_name>
+            <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+            <sys_update_name>sys_choice_x_pinr_well_constr_wc_request_task_wc_task_status</sys_update_name>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2018-12-07 19:30:56</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

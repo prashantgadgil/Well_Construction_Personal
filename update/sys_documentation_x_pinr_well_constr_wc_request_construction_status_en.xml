@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="construction_status" label="Construction Status" language="en" table="x_pinr_well_constr_wc_request">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>construction_status</element>
+            <help/>
+            <hint/>
+            <label>Construction Status</label>
+            <language>en</language>
+            <name>x_pinr_well_constr_wc_request</name>
+            <plural>Construction Status</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2018-12-07 19:14:42</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>5c1e8b2c135e6f00dd9251522244b028</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_name>Construction Status</sys_name>
+            <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+            <sys_update_name>sys_documentation_x_pinr_well_constr_wc_request_construction_status_en</sys_update_name>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2018-12-07 19:21:20</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

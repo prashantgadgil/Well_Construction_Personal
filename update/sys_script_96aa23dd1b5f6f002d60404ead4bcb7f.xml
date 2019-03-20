@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_label/>
+        <action_name/>
+        <action_query>false</action_query>
+        <action_run_at>server</action_run_at>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <application/>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_pinr_well_constr_wv_bore</collection>
+        <condition/>
+        <description>This business rule is used to trigger appropriate notification of Location change when Well Construction Workflow is in flight. It responds to changes in either UTMX, UTMY, Latitude, Longitude or Survey of the bore location in Well View.</description>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>WV Bore Data Changed</name>
+        <onclick/>
+        <order>100</order>
+        <priority>100</priority>
+        <read_access_action>false</read_access_action>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+	
+	var foo = new WellViewTaskProcessor();
+	var foo2 = new x_pinr_wells_confi.WellsConfigUtils();
+	
+	var division_code = "";
+	if (!current.wv_header.nil()) {
+		division_code = foo.getDivisionCode(current.wv_header.division);
+	}
+
+	// if no active WC Request then no need to respond to changes
+	if (!foo.doesWVHeaderHaveActiveWCRequest(current.wv_header)) {
+		gs.error("WC - There is no active WC request right now for this bore's WV Header. So no need to respond to changes to the bore level information.");
+		return;
+	}
+	
+	
+	//var configPropertyName = "x_pinr_well_constr." + division_code + "_Alert_Dist_List";
+	var mailingList = "";//gs.getProperty(configPropertyName);
+
+	// bore location change event
+	if (current.operation() == "update" & 
+		(
+		current.utmx.changes() ||
+		current.utmy.changes() ||
+		current.latitude.changes() ||
+		current.longitude.changes() ||
+		current.survey.changes()
+		)
+	   ) {
+		//gs.error("WC - Detected Bore Location Change");
+		var payload3 = {};
+		if (!current.wv_header.nil()) {
+			payload3.well_name = current.wv_header.well_name.toString();
+			payload3.api = current.wv_header.api.toString();
+			payload3.header_sys_updated_by = current.wv_header.sys_updated_by.toString();
+			payload3.header_sys_updated_on = current.wv_header.sys_updated_on.toString();
+		}
+		
+		payload3.bore_current_utmx = current.utmx.toString();
+		payload3.bore_current_utmy = current.utmy.toString();
+		payload3.bore_current_latitude = current.latitude.toString();
+		payload3.bore_current_longitude = current.longitude.toString();
+		payload3.bore_current_survey = current.survey.toString();
+
+		payload3.bore_previous_utmx = previous.utmx.toString();
+		payload3.bore_previous_utmy = previous.utmy.toString();
+		payload3.bore_previous_latitude = previous.latitude.toString();
+		payload3.bore_previous_longitude = previous.longitude.toString();
+		payload3.bore_previous_survey = previous.survey.toString();
+
+		payload3.bore_sys_updated_by = current.sys_updated_by.toString();
+		payload3.bore_sys_updated_on = current.sys_updated_on.toString();
+		
+		mailingList = foo2.getEmailRecipientAddress("Well Construction","WC Bore Loc Change Notification",division_code);
+		
+		var parm7= JSON.stringify(payload3);
+		var parm8 = mailingList;
+		gs.eventQueue("x_pinr_well_constr.WV_Bore_Loc_Change", current, parm7, parm8);
+		gs.error("WC - Firing event x_pinr_well_constr.WV_Bore_Loc_Change");
+	}
+	
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>gadgi161</sys_created_by>
+        <sys_created_on>2019-01-28 22:17:52</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>96aa23dd1b5f6f002d60404ead4bcb7f</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>WV Bore Data Changed</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+        <sys_update_name>sys_script_96aa23dd1b5f6f002d60404ead4bcb7f</sys_update_name>
+        <sys_updated_by>gadgi161</sys_updated_by>
+        <sys_updated_on>2019-03-13 13:00:56</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+</record_update>

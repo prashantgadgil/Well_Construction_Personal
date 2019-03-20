@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>WC_Geo_Change_Email</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template,
+          /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action,
+          /* Optional GlideRecord */ event) {
+
+	//gs.error("Event first param = " + event.parm1);
+	//gs.error("Event second param = " + event.parm2);
+
+	var payload = JSON.parse(event.parm1);
+	var mailingList = event.parm2;
+	
+	var foo = new WellViewTaskProcessor();
+	var division_code = foo.getDivisionCode(current.wv_header.division);
+	
+	email.setSubject(division_code + " Geo Prog Info Alert: "+ payload.well_name);
+	
+	template.print("<title>" + division_code + " Well Construction > Geo Prog Info Change Alert for " + payload.well_name + "</title>");
+
+	template.print("<table class='content-table'><thead>");
+	template.print("<tr><th colspan='4'>" + division_code + " Geo Prog Info Alert</th></tr>");
+
+	var nowDate = new GlideDate(); 
+	template.print("<tr><td width='120'>Alert Date:</td><td colspan='3' style='background:white'>" + nowDate.getByFormat("yyyy-MM-dd") + "</td></tr>");
+
+	template.print("<tr><th colspan='4'>New</th></tr>");
+	template.print("<tr>");
+	if (payload.dateChanged == "true") {
+		template.print("<td width='120' style='color:#ff0000;font-weight:bold;'>Geo Prog Finalized Details (changed): </td><td style='color:#ff0000;font-weight:bold;'>" + payload.current_date + "</td>");
+	}
+	else  {
+		template.print("<td width='120'>Geo Prog Finalized Details:</td><td style='background:white'>" + payload.current_date + "</td>");
+	}
+	
+	if (payload.detailsChanged == "true") {
+		template.print("<td width='120' style='color:#ff0000;font-weight:bold;'>Geo Prog Finalized Date (changed): </td><td style='color:#ff0000;font-weight:bold;'>" + payload.current_details + "</td>");
+	}
+	else  {
+		template.print("<td width='120'>Geo Prog Finalized Date:</td><td style='background:white'>" + payload.current_details + "</td>");
+	}
+	template.print("</tr>");
+	
+	template.print("<tr><td width='120'>Last Modified On:</td><td style='background:white'>" + payload.sys_updated_on+ "</td>");
+	template.print("<td width='120'>Last Modified By (user id):</td><td style='background:white'>" + payload.sys_updated_by+ "</td></tr>");
+	
+	template.print("<tr><th colspan='4'>Old</th></tr>");
+	template.print("<tr><td width='120'>Geo Prog Finalized Date:</td><td style='background:white'>" + payload.previous_date + "</td>");
+	template.print("<td width='120'>Geo Prog Finalized Details:</td><td style='background:white'>" + payload.previous_details + "</td></tr>");
+
+	template.print("<tr><th colspan='4'>Well Construction Process Alert</th></tr>");
+	template.print("<tr><td colspan='4' style='background:white'>This alert is a coutesy message to notify you that the Geo Prog information has changed in the construction process for well " + payload.well_name + " </td></tr>");
+	template.print("</thead></table>");
+	
+	if (gs.getProperty("instance_name") != "pioneer") {
+		template.print("<br><br><br>Footer:<br>"); 	
+		template.print("If this email had been sent in production, it would have gone to the following recipient email addresses:<br>") ;
+		template.print(mailingList + "<br>");
+	}
+	
+	
+	
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>gadgi161</sys_created_by>
+        <sys_created_on>2019-01-28 19:27:06</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>3c930b591b9b6f002d60404ead4bcbf0</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>WC_Geo_Change_Email</sys_name>
+        <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+        <sys_update_name>sys_script_email_3c930b591b9b6f002d60404ead4bcbf0</sys_update_name>
+        <sys_updated_by>gadgi161</sys_updated_by>
+        <sys_updated_on>2019-03-07 15:06:07</sys_updated_on>
+    </sys_script_email>
+</record_update>

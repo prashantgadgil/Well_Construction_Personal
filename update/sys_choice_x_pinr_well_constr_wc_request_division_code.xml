@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="division_code" table="x_pinr_well_constr_wc_request" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>division_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>PAT</label>
+            <language>en</language>
+            <name>x_pinr_well_constr_wc_request</name>
+            <sequence>0</sequence>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-22 17:23:58</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>2eddafd31b8f27002d60404ead4bcb0f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-22 17:23:58</sys_updated_on>
+            <value>PAT</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>division_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>STAT</label>
+            <language>en</language>
+            <name>x_pinr_well_constr_wc_request</name>
+            <sequence>1</sequence>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-22 17:23:58</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>66ddafd31b8f27002d60404ead4bcb12</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-22 17:23:58</sys_updated_on>
+            <value>STAT</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>division_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>PWM</label>
+            <language>en</language>
+            <name>x_pinr_well_constr_wc_request</name>
+            <sequence>2</sequence>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-22 17:23:58</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>aaddafd31b8f27002d60404ead4bcb14</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-22 17:23:58</sys_updated_on>
+            <value>PWM</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>division_code</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>unknown</label>
+            <language>en</language>
+            <name>x_pinr_well_constr_wc_request</name>
+            <sequence>3</sequence>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-22 17:23:58</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_id>eeddafd31b8f27002d60404ead4bcb16</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-22 17:23:58</sys_updated_on>
+            <value>unknown</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>division_code</element>
+            <name>x_pinr_well_constr_wc_request</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>gadgi161</sys_created_by>
+            <sys_created_on>2019-01-22 17:23:58</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>069bc65a1bb7a3002d60404ead4bcbb9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>division_code</sys_name>
+            <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+            <sys_update_name>sys_choice_x_pinr_well_constr_wc_request_division_code</sys_update_name>
+            <sys_updated_by>gadgi161</sys_updated_by>
+            <sys_updated_on>2019-01-22 17:23:58</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

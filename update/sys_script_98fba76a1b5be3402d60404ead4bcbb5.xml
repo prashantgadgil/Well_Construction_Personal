@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_label/>
+        <action_name/>
+        <action_query>false</action_query>
+        <action_run_at>server</action_run_at>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <application/>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_pinr_well_constr_wc_request_task</collection>
+        <condition/>
+        <description>This business rule is used to send appropriate events when a task in Well Construction workflow is created and when it is completed. These events will trigger corresponding email notifications to appropriate recipients to notify them of task assignment or task completion. Task assignment notification is currently marked as Not Active, but can be activated later if users need email notification on Task Assignment.</description>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>WC Task Assign or Complete</name>
+        <onclick/>
+        <order>100</order>
+        <priority>100</priority>
+        <read_access_action>false</read_access_action>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+	
+	gs.error("WC - Running Business Rule WC Task Assign or Completed");
+
+	var foo = new WellViewTaskProcessor();
+	var division_code = current.wc_request.division_code;
+	
+	//var configPropertyName = "x_pinr_well_constr." + division_code + "_Alert_Dist_List";
+	var mailingList = "";//gs.getProperty(configPropertyName);
+	
+	// Task Completed Event 
+	if (current.operation() == "update" & current.state.changesTo(3)) {
+		gs.error("WC - Well Construction Task Completed.");
+		var payload3 = {};
+		payload3.division_code = division_code.toString();
+		if (!current.wc_request.nil()) {
+			if (!current.wc_request.wv_header.nil()) {
+				payload3.well_name = current.wc_request.wv_header.well_name.toString();
+				payload3.wc_request_number = current.wc_request.number.toString();
+				payload3.latitude = current.wc_request.wv_header.latitude.toString();
+				payload3.longitude = current.wc_request.wv_header.longitude.toString();
+			}
+		}
+		if (!current.wv_task.nil()) {
+			payload3.task_name =current.wv_task.task_name.toString();
+			payload3.wc_task_status = current.wc_task_status.toString();
+			payload3.action_com = current.wv_task.action_com.toString();
+			payload3.assign_to_email = current.wv_task.assign_to_email.toString();
+			payload3.request_by_email = current.wv_task.request_by_email.toString();
+		}
+		
+		payload3.mailing_list = payload3.request_by_email;
+		
+		var parm7= JSON.stringify(payload3);
+		var parm8 = payload3.mailing_list;
+		gs.eventQueue("x_pinr_well_constr.WC_Task_Completed", current, parm7, parm8);
+		gs.error("WC - Firing event x_pinr_well_constr.WC_Task_Completed");
+	}
+	
+	if (current.wv_task.changes()) { //} .operation() == "insert") {
+		gs.error("WC - Well Construction Task Assigned.");
+		var payload2 = {};
+		if (!current.wc_request.nil()) {
+			payload2.division_code = current.wc_request.division_code.toString();
+			if (!current.wc_request.wv_header.nil()) {
+				payload2.well_name = current.wc_request.wv_header.well_name.toString();
+				payload2.wc_request_number = current.wc_request.number.toString();
+				payload2.latitude = current.wc_request.wv_header.latitude.toString();
+				payload2.longitude = current.wc_request.wv_header.longitude.toString();
+				payload2.due_date = current.due_date.toString();
+				payload2.request_com = current.wv_task.request_com.toString();
+			}
+		}
+		if (!current.wv_task.nil()) {
+			payload2.task_name =current.wv_task.task_name.toString();
+			payload2.wc_task_status = current.wc_task_status.toString();
+			payload2.action_com = current.wv_task.action_com.toString();
+			payload2.request_by_email = current.wv_task.request_by_email.toString();
+			payload2.assign_by_email = current.wv_task.assign_to_email.toString();
+			//mailingList+= payload2.assign_to_email;
+		}
+		
+		payload2.mailing_list = payload2.assign_to_email;
+	
+		var parm1= JSON.stringify(payload2);
+		var parm2 = payload2.mailing_list;
+		gs.eventQueue("x_pinr_well_constr.WC_Task_Assigned", current, parm1, parm2);
+		gs.error("WC - Firing event x_pinr_well_constr.WC_Task_Assigned");
+	}
+	
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>gadgi161</sys_created_by>
+        <sys_created_on>2019-02-01 19:35:52</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>98fba76a1b5be3402d60404ead4bcbb5</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_name>WC Task Assign or Complete</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+        <sys_update_name>sys_script_98fba76a1b5be3402d60404ead4bcbb5</sys_update_name>
+        <sys_updated_by>gadgi161</sys_updated_by>
+        <sys_updated_on>2019-03-12 20:36:13</sys_updated_on>
+        <template/>
+        <when>after</when>
+    </sys_script>
+</record_update>

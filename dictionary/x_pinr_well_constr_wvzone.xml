@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="wvzone" max_length="40" name="x_pinr_well_constr_wvzone" type="collection">
+        <element attributes="import_attribute_name=com,edge_encryption_enabled=true" label="com" max_length="40" name="u_com" type="string"/>
+        <element attributes="import_attribute_name=datasource,edge_encryption_enabled=true" label="datasource" max_length="40" name="u_datasource" type="string"/>
+        <element attributes="import_attribute_name=depthbtm,edge_encryption_enabled=true" label="depthbtm" max_length="40" name="u_depthbtm" type="string"/>
+        <element attributes="import_attribute_name=depthref,edge_encryption_enabled=true" label="depthref" max_length="40" name="u_depthref" type="string"/>
+        <element attributes="import_attribute_name=depthtop,edge_encryption_enabled=true" label="depthtop" max_length="40" name="u_depthtop" type="string"/>
+        <element attributes="import_attribute_name=dttmzoneabandon,edge_encryption_enabled=true" label="dttmzoneabandon" max_length="40" name="u_dttmzoneabandon" type="string"/>
+        <element attributes="import_attribute_name=dttmzonelic,edge_encryption_enabled=true" label="dttmzonelic" max_length="40" name="u_dttmzonelic" type="string"/>
+        <element attributes="import_attribute_name=dttmzoneonprod,edge_encryption_enabled=true" label="dttmzoneonprod" max_length="40" name="u_dttmzoneonprod" type="string"/>
+        <element attributes="import_attribute_name=fieldcode,edge_encryption_enabled=true" label="fieldcode" max_length="40" name="u_fieldcode" type="string"/>
+        <element attributes="import_attribute_name=fieldname,edge_encryption_enabled=true" label="fieldname" max_length="40" name="u_fieldname" type="string"/>
+        <element attributes="import_attribute_name=iconname,edge_encryption_enabled=true" label="iconname" max_length="40" name="u_iconname" type="string"/>
+        <element attributes="import_attribute_name=idrec,edge_encryption_enabled=true" label="idrec" max_length="40" name="u_idrec" type="string"/>
+        <element attributes="import_attribute_name=idrecwellbore,edge_encryption_enabled=true" label="idrecwellbore" max_length="40" name="u_idrecwellbore" type="string"/>
+        <element attributes="import_attribute_name=idrecwellboretk,edge_encryption_enabled=true" label="idrecwellboretk" max_length="40" name="u_idrecwellboretk" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="ï»¿idwell" max_length="40" name="u_ï__idwell" type="string"/>
+        <element attributes="import_attribute_name=objective,edge_encryption_enabled=true" label="objective" max_length="40" name="u_objective" type="string"/>
+        <element attributes="import_attribute_name=syscreatedate,edge_encryption_enabled=true" label="syscreatedate" max_length="40" name="u_syscreatedate" type="string"/>
+        <element attributes="import_attribute_name=syscreateuser,edge_encryption_enabled=true" label="syscreateuser" max_length="40" name="u_syscreateuser" type="string"/>
+        <element attributes="import_attribute_name=syslockchildren,edge_encryption_enabled=true" label="syslockchildren" max_length="40" name="u_syslockchildren" type="string"/>
+        <element attributes="import_attribute_name=syslockchildrenui,edge_encryption_enabled=true" label="syslockchildrenui" max_length="40" name="u_syslockchildrenui" type="string"/>
+        <element attributes="import_attribute_name=syslockdate,edge_encryption_enabled=true" label="syslockdate" max_length="40" name="u_syslockdate" type="string"/>
+        <element attributes="import_attribute_name=syslockme,edge_encryption_enabled=true" label="syslockme" max_length="40" name="u_syslockme" type="string"/>
+        <element attributes="import_attribute_name=syslockmeui,edge_encryption_enabled=true" label="syslockmeui" max_length="40" name="u_syslockmeui" type="string"/>
+        <element attributes="import_attribute_name=sysmoddate,edge_encryption_enabled=true" label="sysmoddate" max_length="40" name="u_sysmoddate" type="string"/>
+        <element attributes="import_attribute_name=sysmoduser,edge_encryption_enabled=true" label="sysmoduser" max_length="40" name="u_sysmoduser" type="string"/>
+        <element attributes="import_attribute_name=systag,edge_encryption_enabled=true" label="systag" max_length="40" name="u_systag" type="string"/>
+        <element attributes="import_attribute_name=unitcode,edge_encryption_enabled=true" label="unitcode" max_length="40" name="u_unitcode" type="string"/>
+        <element attributes="import_attribute_name=unitname,edge_encryption_enabled=true" label="unitname" max_length="40" name="u_unitname" type="string"/>
+        <element attributes="import_attribute_name=usertxt1,edge_encryption_enabled=true" label="usertxt1" max_length="40" name="u_usertxt1" type="string"/>
+        <element attributes="import_attribute_name=usertxt2,edge_encryption_enabled=true" label="usertxt2" max_length="40" name="u_usertxt2" type="string"/>
+        <element attributes="import_attribute_name=usertxt3,edge_encryption_enabled=true" label="usertxt3" max_length="40" name="u_usertxt3" type="string"/>
+        <element attributes="import_attribute_name=usertxt4,edge_encryption_enabled=true" label="usertxt4" max_length="40" name="u_usertxt4" type="string"/>
+        <element attributes="import_attribute_name=usertxt5,edge_encryption_enabled=true" label="usertxt5" max_length="40" name="u_usertxt5" type="string"/>
+        <element attributes="import_attribute_name=usertxt6,edge_encryption_enabled=true" label="usertxt6" max_length="40" name="u_usertxt6" type="string"/>
+        <element attributes="import_attribute_name=zonecode,edge_encryption_enabled=true" label="zonecode" max_length="40" name="u_zonecode" type="string"/>
+        <element attributes="import_attribute_name=zoneida,edge_encryption_enabled=true" label="zoneida" max_length="40" name="u_zoneida" type="string"/>
+        <element attributes="import_attribute_name=zoneidb,edge_encryption_enabled=true" label="zoneidb" max_length="40" name="u_zoneidb" type="string"/>
+        <element attributes="import_attribute_name=zoneidc,edge_encryption_enabled=true" label="zoneidc" max_length="40" name="u_zoneidc" type="string"/>
+        <element attributes="import_attribute_name=zoneidd,edge_encryption_enabled=true" label="zoneidd" max_length="40" name="u_zoneidd" type="string"/>
+        <element attributes="import_attribute_name=zoneide,edge_encryption_enabled=true" label="zoneide" max_length="40" name="u_zoneide" type="string"/>
+        <element attributes="import_attribute_name=zonelicensee,edge_encryption_enabled=true" label="zonelicensee" max_length="40" name="u_zonelicensee" type="string"/>
+        <element attributes="import_attribute_name=zonelicenseno,edge_encryption_enabled=true" label="zonelicenseno" max_length="40" name="u_zonelicenseno" type="string"/>
+        <element attributes="import_attribute_name=zonename,edge_encryption_enabled=true" label="zonename" max_length="40" name="u_zonename" type="string"/>
+    </element>
+</database>

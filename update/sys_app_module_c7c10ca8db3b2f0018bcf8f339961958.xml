@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <application display_value="Well Construction">748dc7e8135e6f00dd9251522244b0ca</application>
+        <assessment/>
+        <content_page/>
+        <device_type/>
+        <filter/>
+        <help_hint/>
+        <help_link/>
+        <hint/>
+        <homepage/>
+        <image/>
+        <link_type>LIST</link_type>
+        <map_page/>
+        <mobile_title>wvjob</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name>x_pinr_well_constr_wvjob</name>
+        <order>1250</order>
+        <override_menu_roles>false</override_menu_roles>
+        <populate_view/>
+        <query/>
+        <report/>
+        <roles>admin,x_pinr_well_constr.WC Administrator</roles>
+        <survey/>
+        <survey_overwrite>true</survey_overwrite>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>gadgi161</sys_created_by>
+        <sys_created_on>2019-02-19 17:56:25</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>c7c10ca8db3b2f0018bcf8f339961958</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>wvjob</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Well Construction" source="x_pinr_well_constr">39bc3c5c135627004904be322244b0dd</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Well Construction">39bc3c5c135627004904be322244b0dd</sys_scope>
+        <sys_update_name>sys_app_module_c7c10ca8db3b2f0018bcf8f339961958</sys_update_name>
+        <sys_updated_by>gadgi161</sys_updated_by>
+        <sys_updated_on>2019-02-19 20:04:48</sys_updated_on>
+        <timeline_page/>
+        <title>wvjob</title>
+        <u_count_color/>
+        <u_refresh_interval/>
+        <u_show_count>false</u_show_count>
+        <u_sort_order/>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+        <window_name/>
+    </sys_app_module>
+</record_update>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="WV Task" max_length="40" name="x_pinr_well_constr_wv_task" type="collection">
+        <element label="Action Com" max_length="40" name="action_com" type="string"/>
+        <element label="Action Complete" max_length="40" name="action_complete" type="integer"/>
+        <element label="Assigned Date" max_length="40" name="assigned_date" type="glide_date"/>
+        <element label="Assign To Email" max_length="40" name="assign_to_email" type="string"/>
+        <element label="Assign To Name" max_length="40" name="assign_to_name" type="string"/>
+        <element label="Date Action Required" max_length="40" name="date_action_required" type="glide_date"/>
+        <element label="Date Completed" max_length="40" name="date_completed" type="glide_date"/>
+        <element label="Days" max_length="40" name="days" type="integer"/>
+        <element label="IDWell" max_length="40" name="idwell" type="string"/>
+        <element label="ID Rec" max_length="40" name="id_rec" type="string"/>
+        <element label="ID Rec Detail" max_length="40" name="id_rec_detail" type="string"/>
+        <element label="Recompletion IP Date Monitor Email Sent" max_length="40" name="recompletion_ip_date_monitor_email_sent" type="boolean"/>
+        <element label="Request By Email" max_length="40" name="request_by_email" type="string"/>
+        <element label="Request Com" max_length="40" name="request_com" type="string"/>
+        <element label="Request Date" max_length="40" name="request_date" type="glide_date"/>
+        <element label="Sub Task Name" max_length="40" name="sub_task_name" type="string"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#9;// Add your code here&#13;&#10;      return current.idwell + &quot;-&quot; + current.task_name;&#13;&#10;})(current);" display="true" label="Task Display Name" max_length="80" name="task_display_name" read_only="true" type="string" virtual="true"/>
+        <element label="Task Name" max_length="40" name="task_name" type="string"/>
+        <element label="WV Header" max_length="32" name="wv_header" reference="x_pinr_well_constr_wv_header" reference_cascade_rule="delete" type="reference"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;       // Add your code here&#13;&#10;        if (current.date_completed.nil())  {&#13;&#10;              return 'Started';&#13;&#10;        }&#13;&#10;       else {&#13;&#10;            return 'Completed'&#13;&#10;&#9;}&#13;&#10;})(current);" label="WV Task Status" max_length="40" name="wv_task_status" read_only="true" type="string" virtual="true"/>
+        <index name="index">
+            <element name="wv_header"/>
+        </index>
+        <index name="index2">
+            <element name="id_rec_detail"/>
+        </index>
+    </element>
+</database>
